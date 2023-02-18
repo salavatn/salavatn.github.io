@@ -1,4 +1,4 @@
-# Welcome to MkDocs
+# Welcome to MkDocs (README.md)
 
 ## Commands:
 * `mkdocs new [dir-name]` - Create a new project
