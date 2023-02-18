@@ -1,4 +1,4 @@
-# Welcome to MkDocs
+# Welcome to MkDocs (INDEX.MD)
 
 ## Commands:
 * `mkdocs new [dir-name]` - Create a new project
