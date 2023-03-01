@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>About - NS-Labs</title>
+    <title>Get Data - NS-Labs</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "About";
-        var mkdocs_page_input_path = "mkdocs/info.md";
+        var mkdocs_page_name = "Get Data";
+        var mkdocs_page_input_path = "SQLAlchemy/5-sql_read_data.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -48,38 +48,26 @@
               </ul>
               <p class="caption"><span class="caption-text">Python Learn</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQL Alchemy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../0_sqlalchemy-info/">SQL Alchemy</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../python/class/">Test</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
-              <ul class="current">
+              <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../EnvironmentVariables/EnvVar/">DotEnv</a>
                   </li>
                   <li class="toctree-l1"><a class="" href="../../In-Progress.md">Faker</a>
                   </li>
                   <li class="toctree-l1"><a class="" href="../../In-Progress.md">Logging</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">MkDocs Info</a>
-    <ul class="current">
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">About</a>
-    <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#commands">Commands:</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#project-layout">Project layout:</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#1-start-create-mkdocs">1. Start create MkDocs</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#2-build-site-files">2. Build site files</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#use-theme">Use Theme</a>
-    </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/info/">About</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../GH-Actions/">GitHub Actions</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/GH-Actions/">GitHub Actions</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../ConfigYAMLexamples/">Examples</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/ConfigYAMLexamples/">Examples</a>
                 </li>
     </ul>
                   </li>
@@ -98,70 +86,119 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Tools &raquo;</li>
-          <li>MkDocs Info &raquo;</li>
-      <li>About</li>
+      <li>Get Data</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
-    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
-        <a href="../../EnvironmentVariables/EnvVar/" class="btn btn-neutral float-left" title="DotEnv"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
-        <a href="../GH-Actions/" class="btn btn-neutral float-right" title="GitHub Actions">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
-    </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="welcome-to-mkdocs-name">Welcome to MkDocs (NAME)</h1>
-<h2 id="commands">Commands:</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project</li>
-<li><code>mkdocs serve</code>   - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site</li>
-</ul>
-<h2 id="project-layout">Project layout:</h2>
-<pre><code>mkdocs.yml      # The configuration file.
-docs/
-    index.md    # The documentation homepage.
-    aws/
-        s3-bucket.md
-    ...         # Other markdown pages, images and other files
-</code></pre>
-<h2 id="1-start-create-mkdocs">1. Start create MkDocs</h2>
-<ul>
-<li><code>mkdocs new .</code> - create new mkdocs.yml file</li>
-<li><code>mkdocs serve</code> - run server</li>
-</ul>
-<h2 id="2-build-site-files">2. Build site files</h2>
-<ul>
-<li><code>mkdocs build</code></li>
-</ul>
-<h2 id="use-theme">Use Theme</h2>
-<ul>
-<li>Local Theme</li>
-</ul>
-<pre><code class="language-yaml">theme:
-    name: readthedocs
-    highlightjs: true
-    hljs_languages:
-        - yaml
-        - rust
-</code></pre>
-<ul>
-<li>External Themes</li>
-<li>https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes</li>
-<li>Example:</li>
-</ul>
-<pre><code class="language-bash">pip install mkdocs-windmill
-</code></pre>
+                <h1 id="get-data">Get Data</h1>
+<p>Filename: <code>sql_read_data.py</code></p>
+<ol>
+<li>Import:
+    <code>python
+    from sql_connection import session
+    from sql_table_list import TableCustomers</code></li>
+</ol>
+<h2 id="simple-query">Simple query</h2>
+<ol>
+<li>
+<p>Query:
+    <code>python
+    table = TableCustomers
+    query = session.query(table)</code></p>
+</li>
+<li>
+<p>Get data:
+    <code>python
+    for get in query:
+        print(f"\tget.name: {get.name}, \tget.age: {get.age}, \tget.grade: {get.grade}")</code>
+    <code>output
+    get.name: Marry,    get.age: 26,    get.grade: R
+    get.name: Fredy,    get.age: 38,    get.grade: C
+    get.name: Mark,     get.age: 42,    get.grade: D
+    get.name: Jack,     get.age: 21,    get.grade: A
+    get.name: Brain,    get.age: 38,    get.grade: B
+    get.name: Alice,    get.age: 41,    get.grade: E</code></p>
+</li>
+<li>
+<p>LOG: SQL Fortmat:
+    <code>sql
+    SELECT  "Customers".id AS "Customers_id",
+            "Customers".name AS "Customers_name", 
+            "Customers".age AS "Customers_age", 
+            "Customers".grade AS "Customers_grade" 
+    FROM "Customers"</code></p>
+</li>
+</ol>
+<h2 id="order-by">ORDER BY</h2>
+<ol>
+<li>
+<p>Query:
+    <code>python
+    table = TableCustomers
+    query = session.query(table).order_by(table.name)</code></p>
+</li>
+<li>
+<p>Get data:
+    ```python
+    for get in query:
+        print(f"\tget.name: {get.name}, \tget.age: {get.age}, \tget.grade: {get.grade}")</p>
+<p><code></code>output
+get.name: Alice,    get.age: 41,    get.grade: E
+get.name: Brain,    get.age: 38,    get.grade: B
+get.name: Fredy,    get.age: 38,    get.grade: C
+get.name: Jack,     get.age: 21,    get.grade: A
+get.name: Mark,     get.age: 42,    get.grade: D
+get.name: Marry,    get.age: 26,    get.grade: R
+```</p>
+</li>
+<li>
+<p>SQL format log:
+    <code>sql
+    SELECT  "Customers".id      AS "Customers_id", 
+            "Customers".name    AS "Customers_name", 
+            "Customers".age     AS "Customers_age", 
+            "Customers".grade   AS "Customers_grade" 
+    FROM    "Customers"</code></p>
+</li>
+</ol>
+<h2 id="filter">FILTER</h2>
+<ol>
+<li>
+<p>Query:
+    <code>python
+    table = TableCustomers
+    query = session.query(table).order_by(table.name).filter(table.age &lt;= 30)</code></p>
+</li>
+<li>
+<p>Get data:
+    ```python
+    for get in query:
+        print(f"\tget.name: {get.name}, \tget.age: {get.age}, \tget.grade: {get.grade}")</p>
+<p><code></code>output
+get.name: Jack,     get.age: 21,    get.grade: A
+get.name: Marry,    get.age: 26,    get.grade: R
+```</p>
+</li>
+<li>
+<p>LOG: SQL Format:
+   <code>sql
+    SELECT  "Customers".id AS "Customers_id", 
+            "Customers".name AS "Customers_name", 
+            "Customers".age AS "Customers_age", 
+            "Customers".grade AS "Customers_grade" 
+    FROM    "Customers" 
+    WHERE   "Customers".age &lt;= %(age_1)s 
+    ORDER BY "Customers".name</code></p>
+</li>
+</ol>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../EnvironmentVariables/EnvVar/" class="btn btn-neutral float-left" title="DotEnv"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../GH-Actions/" class="btn btn-neutral float-right" title="GitHub Actions">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -183,10 +220,6 @@ docs/
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../EnvironmentVariables/EnvVar/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../GH-Actions/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
