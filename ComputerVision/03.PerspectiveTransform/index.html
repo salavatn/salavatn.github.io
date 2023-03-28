@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Connection - NS-Lab</title>
+    <title>03.PerspectiveTransform - NS-Lab</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Connection";
-        var mkdocs_page_input_path = "SQLAlchemy/1_sql_connection.md";
+        var mkdocs_page_name = "03.PerspectiveTransform";
+        var mkdocs_page_input_path = "ComputerVision/03.PerspectiveTransform.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -46,7 +46,7 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../01_Python/Usefull_Libs/Faker/">Faker</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../0_sqlalchemy-info/">SQLAlchemy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
                   </li>
                   <li class="toctree-l1"><a class="" href="../../python/class.md">Test</a>
                   </li>
@@ -91,7 +91,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Connection</li>
+      <li>03.PerspectiveTransform</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,45 +100,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="connection">Connection</h1>
-<p>Filename: <code>sql_connection.py</code></p>
-<ol>
-<li>Install:</li>
-</ol>
-<pre><code class="language-sh">pip install sqlalchemy
-</code></pre>
-<ol>
-<li>Import libs:</li>
-<li>sqlalchemy</li>
-<li>dotenv</li>
-<li>os</li>
-</ol>
-<pre><code class="language-python">from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-from dotenv import load_dotenv
-import os
-</code></pre>
-<ol>
-<li>Load environment parameters for connection:</li>
-<li>Save environment variables (connection parameters)</li>
-</ol>
-<pre><code class="language-python">load_dotenv()
-host = os.environ['SUPABASE_HOST']
-database = os.environ['SUPABASE_DB']
-port = os.environ['SUPABASE_PORT']
-username = os.environ['SUPABASE_USER']
-password = os.environ['SUPABASE_PASSWD']
-</code></pre>
-<ol>
-<li>Connection:</li>
-<li>engine, need for connection to database</li>
-<li>base, need for work with table</li>
-<li>session, for tasks - create, upload, commit, delete </li>
-</ol>
-<pre><code class="language-python">engine = create_engine(f'postgresql://{username}:{password}@{host}:{port}/{database}', echo=True)
-base = declarative_base()
-session_maker = sessionmaker(bind=engine)
-session = session_maker()
+                <pre><code class="language-python">import cv2
+import numpy as np
+import math
+
+
+file = &quot;Images/wokrplace.png&quot;
+
+book = [[3591, 2270], [3644, 2960], [2553, 2141], [2464, 2779]]
+keyboard1 = [[1756, 2236], [2483, 1742], [2048, 2501], [2780, 1951]]
+keyboard2 = [[1147, 2106], [1673, 1502], [1661, 2315], [2135, 1648]]
+monitor = [[1894, 165], [3778, 476], [1796, 1139], [3497, 1582]]
+notepad = [[1518, 1201], [1339, 1632], [690, 1122], [422, 1527]]
+
+
+def perspective_transform(points, image):
+    pt_A = points[0]
+    pt_B = points[1]
+    pt_C = points[2]
+    pt_D = points[3]
+
+    photo = cv2.imread(image)
+
+    line1 = (pt_A, pt_B)
+    line2 = (pt_C, pt_D)
+    red = (0, 0, 255)
+
+    width = int(math.sqrt((pt_A[0] - pt_B[0]) ** 2 + (pt_A[1] - pt_B[1]) ** 2))
+    height = int(math.sqrt((pt_A[0] - pt_C[0]) ** 2 + (pt_A[1] - pt_C[1]) ** 2))
+
+    cv2.line(img=photo, pt1=line1[0], pt2=line1[1], color=red, thickness=5)
+    cv2.line(img=photo, pt1=line2[0], pt2=line2[1], color=red, thickness=5)
+
+    pts1 = np.float32([pt_A, pt_B, pt_C, pt_D])
+    pts2 = np.float32([[0, 0], [width, 0], [0, height], [width, height]])
+
+    matrix = cv2.getPerspectiveTransform(pts1, pts2)
+    imgOutput = cv2.warpPerspective(photo, matrix, (width, height))
+
+    cv2.imshow(&quot;Original&quot;, photo)
+    cv2.imshow(&quot;Perspective Transformation&quot;, imgOutput)
+
+    cv2.waitKey(0)
+
+
+perspective_transform(keyboard1, file)
 </code></pre>
               
             </div>

@@ -1,0 +1,15 @@
+-- create company TABLE
+CREATE TABLE COMPANY(
+   ID       SERIAL,
+   NAME     TEXT    NOT NULL,
+   CITY     CHAR(50)
+);
+
+-- create job table
+CREATE TABLE JOB(
+   ID SERIAL,
+   TITLE           TEXT    NOT NULL,
+   COMPANY_ID      INT     NOT NULL,
+   FOREIGN KEY(COMPANY_ID) REFERENCES COMPANY(ID)
+);
+

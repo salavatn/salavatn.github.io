@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Connection - NS-Lab</title>
+    <title>Objects (Объекты) - NS-Lab</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Connection";
-        var mkdocs_page_input_path = "SQLAlchemy/1_sql_connection.md";
+        var mkdocs_page_name = "Objects (\u041e\u0431\u044a\u0435\u043a\u0442\u044b)";
+        var mkdocs_page_input_path = "01_Python/class.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -44,9 +44,9 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Python Useful Lib</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../01_Python/Usefull_Libs/Faker/">Faker</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../Usefull_Libs/Faker/">Faker</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../0_sqlalchemy-info/">SQLAlchemy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
                   </li>
                   <li class="toctree-l1"><a class="" href="../../python/class.md">Test</a>
                   </li>
@@ -91,7 +91,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Connection</li>
+      <li>Objects (Объекты)</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,46 +100,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="connection">Connection</h1>
-<p>Filename: <code>sql_connection.py</code></p>
-<ol>
-<li>Install:</li>
-</ol>
-<pre><code class="language-sh">pip install sqlalchemy
+                <h1 id="objects">Objects (Объекты)</h1>
+<p>Объект - этой контейнер состоящий из:
+1. Данных (Attributes) и состояний
+2. Поведения (Method)</p>
+<p>По содержимому можно определить тип данных</p>
+<h2 id="1-list">Пример 1 - list</h2>
+<p><strong>Attributes:</strong> - значения в списке</p>
+<pre><code class="language-python">mylist = [&quot;BMW&quot;,&quot;Kia&quot;, &quot;Audi&quot;, &quot;Ford&quot;]
+print(type(mylist))   # &lt;class 'list'&gt;
 </code></pre>
-<ol>
-<li>Import libs:</li>
-<li>sqlalchemy</li>
-<li>dotenv</li>
-<li>os</li>
-</ol>
-<pre><code class="language-python">from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-from dotenv import load_dotenv
-import os
+<p><strong>Methods:</strong> Возможные поведения для списка</p>
+<pre><code class="language-python">mylist.count()
+mylist.append()
+mylist.sort()
+mylist.pop()
+mylist.index()
+mylist.remove()
+mylist.insert()
+mylist.extend()
+mylist.copy()
+mylist.clear()
 </code></pre>
-<ol>
-<li>Load environment parameters for connection:</li>
-<li>Save environment variables (connection parameters)</li>
-</ol>
-<pre><code class="language-python">load_dotenv()
-host = os.environ['SUPABASE_HOST']
-database = os.environ['SUPABASE_DB']
-port = os.environ['SUPABASE_PORT']
-username = os.environ['SUPABASE_USER']
-password = os.environ['SUPABASE_PASSWD']
+<p><strong>Examples:</strong></p>
+<pre><code class="language-python">print(mylist)               # ['BMW', 'Kia', 'Audi', 'Ford']
+print(mylist.count(&quot;BMW&quot;))  # 1
+print(mylist.index(&quot;BMW&quot;))  # 0
+
+newlist = mylist.copy()     # ['BMW', 'Kia', 'Audi', 'Ford']
+
+mylist.append(&quot;Nissan&quot;)     # ['BMW', 'Kia', 'Audi', 'Ford', 'Nissan']
+mylist.sort()               # ['Audi', 'BMW', 'Ford', 'Kia', 'Nissan']
+mylist.pop()                # ['Audi', 'BMW', 'Ford', 'Kia']
+mylist.remove(&quot;BMW&quot;)        # ['Audi', 'Ford', 'Kia']
+mylist.insert(0, &quot;Dodge&quot;)   # ['Dodge', 'Audi', 'Ford', 'Kia']
+mylist.extend(mylist)       # ['Dodge', 'Audi', 'Ford', 'Kia', 'Dodge', 'Audi', 'Ford', 'Kia']
+mylist.extend(mylist)       # []
 </code></pre>
-<ol>
-<li>Connection:</li>
-<li>engine, need for connection to database</li>
-<li>base, need for work with table</li>
-<li>session, for tasks - create, upload, commit, delete </li>
-</ol>
-<pre><code class="language-python">engine = create_engine(f'postgresql://{username}:{password}@{host}:{port}/{database}', echo=True)
-base = declarative_base()
-session_maker = sessionmaker(bind=engine)
-session = session_maker()
+<h2 id="2-int">Пример 2 - int</h2>
+<p><strong>Attributes:</strong> - значение целое число</p>
+<pre><code class="language-python">mynumber = 1999
+print(type(mynumber)) # &lt;class 'int'&gt;
 </code></pre>
+<p><strong>Methods:</strong> Возможные поведения для целых чисел</p>
+<pre><code class="language-python">mynumber.to_bytes()
+mynumber.conjugate()
+mynumber.as_integer_ratio()
+mynumber.bit_count()
+mynumber.bit_length()
+mynumber.from_bytes()
+</code></pre>
+<h1 id="class">Class</h1>
+<pre><code class="language-python">class Person:
+  name = 'Jared'
+  age = 30
+
+print(Person.name)
+print(Person.age)
+</code></pre>
+<p>name и age - являются Attribute, при обращении к классу:
+Class.attribute</p>
               
             </div>
           </div><footer>

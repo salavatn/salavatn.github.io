@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Connection - NS-Lab</title>
+    <title>Upload API Function - NS-Lab</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Connection";
-        var mkdocs_page_input_path = "SQLAlchemy/1_sql_connection.md";
+        var mkdocs_page_name = "Upload API Function";
+        var mkdocs_page_input_path = "03_AWS/lambda.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -46,7 +46,7 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../01_Python/Usefull_Libs/Faker/">Faker</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../0_sqlalchemy-info/">SQLAlchemy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
                   </li>
                   <li class="toctree-l1"><a class="" href="../../python/class.md">Test</a>
                   </li>
@@ -91,7 +91,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Connection</li>
+      <li>Upload API Function</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,45 +100,65 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="connection">Connection</h1>
-<p>Filename: <code>sql_connection.py</code></p>
+                <h1 id="upload-api-function">Upload API Function</h1>
+<p><strong>Overview:</strong></p>
+<h2 id="nmp-node">nmp (node)</h2>
 <ol>
-<li>Install:</li>
+<li>Install node and check version</li>
 </ol>
-<pre><code class="language-sh">pip install sqlalchemy
+<pre><code class="language-sh">brew install node
+node -v
+</code></pre>
+<pre><code class="language-output">v19.8.1
 </code></pre>
 <ol>
-<li>Import libs:</li>
-<li>sqlalchemy</li>
-<li>dotenv</li>
-<li>os</li>
+<li>Install serverless</li>
 </ol>
-<pre><code class="language-python">from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-from dotenv import load_dotenv
-import os
+<pre><code class="language-sh">npm install -g serverless
+</code></pre>
+<h2 id="serverless-create-project">serverless, create project</h2>
+<ol>
+<li>Create Project "lambda"</li>
+</ol>
+<pre><code class="language-python">mkdir lambda
+cd lambda
+python3 -m venv venv
+. ./venv/bin/activate
 </code></pre>
 <ol>
-<li>Load environment parameters for connection:</li>
-<li>Save environment variables (connection parameters)</li>
+<li>Install Serverless and check</li>
 </ol>
-<pre><code class="language-python">load_dotenv()
-host = os.environ['SUPABASE_HOST']
-database = os.environ['SUPABASE_DB']
-port = os.environ['SUPABASE_PORT']
-username = os.environ['SUPABASE_USER']
-password = os.environ['SUPABASE_PASSWD']
+<pre><code class="language-sh">pip install serverless-wsgi
+pip list
+</code></pre>
+<pre><code class="language-output">Package         Version
+--------------- -------
+MarkupSafe      2.1.2
+pip             21.2.4
+serverless-wsgi 3.0.2
+setuptools      58.0.4
+Werkzeug        2.2.3
 </code></pre>
 <ol>
-<li>Connection:</li>
-<li>engine, need for connection to database</li>
-<li>base, need for work with table</li>
-<li>session, for tasks - create, upload, commit, delete </li>
+<li>Create serverless template</li>
 </ol>
-<pre><code class="language-python">engine = create_engine(f'postgresql://{username}:{password}@{host}:{port}/{database}', echo=True)
-base = declarative_base()
-session_maker = sessionmaker(bind=engine)
-session = session_maker()
+<pre><code class="language-sh">serverless create --template aws-python3 --path .
+</code></pre>
+<ol>
+<li>Install plugin</li>
+</ol>
+<pre><code class="language-sh">serverless plugin install -n serverless-wsgi
+</code></pre>
+<h2 id="pre-configure">Pre-Configure</h2>
+<ol>
+<li>Backup templates</li>
+</ol>
+<pre><code class="language-sh">mv .gitignore .gitignore_BACKUP
+mv handler.py handler.py_BACKUP
+mv serverless.yml serverless.yml_BACKUP
+</code></pre>
+<h2 id="run">Run</h2>
+<pre><code class="language-sh">serverless deploy
 </code></pre>
               
             </div>

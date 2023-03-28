@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Faker - NS-Lab</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Faker";
+        var mkdocs_page_input_path = "01_Python/Usefull_Libs/Faker.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> NS-Lab
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Python Useful Lib</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Faker</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#install-and-check">Install and check</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-example">Simple Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#search-available-parameters">Search available Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#popular-parameters">Popular parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-of-using-faker">Example of using Faker</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../python/class.md">Test</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python Libs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../In-Progress.md">Faker</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../aws/s3-bucket.md">Amazon AWS</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../EnvironmentVariables/EnvVar/">DotEnv</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../In-Progress.md">Logging</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/info/">About</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/GH-Actions/">GitHub Actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/ConfigYAMLexamples/">Examples</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">NS-Lab</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Python Useful Lib &raquo;</li>
+      <li>Faker</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../../../SQLAlchemy/0_sqlalchemy-info/" class="btn btn-neutral float-right" title="SQLAlchemy">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="python-library-faker">Python Library: Faker</h1>
+<p>Faker provide you fake data for test project.</p>
+<ul>
+<li><a href="#install-and-check">Install and check</a></li>
+<li><a href="#simple-example">Simple Example</a></li>
+<li><a href="#search-available-parameters">Search available Parameters</a></li>
+<li><a href="#popular-parameters">Popular parameters</a></li>
+<li><a href="#example-of-using-faker">Example of using Faker</a></li>
+</ul>
+<h2 id="install-and-check">Install and check</h2>
+<p><a href="https://pypi.org/project/Faker/">PyPi Link</a></p>
+<pre><code class="language-sh">pip install Faker
+</code></pre>
+<pre><code class="language-sh">pip list
+</code></pre>
+<pre><code class="language-output">Package            Version
+------------------ -------
+Faker              18.3.0
+</code></pre>
+<h2 id="simple-example">Simple Example</h2>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+name = fake.name()
+country = fake.country()
+
+print(f&quot;{name} from {country}!&quot;)
+</code></pre>
+<pre><code class="language-output">Daniel Foster from Madagascar!
+</code></pre>
+<h2 id="search-available-parameters">Search available Parameters</h2>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+keyword = &quot;credit&quot;      # What are you looking for?
+parameters = dir(fake)
+
+for element in parameters:
+    if keyword in element:
+        print(element)
+</code></pre>
+<pre><code class="language-output">credit_card_expire
+credit_card_full
+credit_card_number
+credit_card_provider
+credit_card_security_code
+</code></pre>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+credit_card = fake.credit_card_full()
+print(credit_card)
+</code></pre>
+<pre><code class="language-result">Mastercard
+Brenda Johnson
+2681694391010925 11/29
+CVV: 925
+</code></pre>
+<h2 id="popular-parameters">Popular parameters</h2>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+print(fake.chrome())    # Mozilla/5.0 (Linux; Android 4.2) AppleWebKit/534.1 (KHTML, like Gecko) Chrome/26.0.898.0 Safari/534.1
+print(fake.city())      # Williamston
+print(fake.color())     # #39ddd8
+print(fake.company())   # Powell Ltd
+print(fake.credit_card_number()) # 4773904006800585
+print(fake.date())      # 1996-06-10
+print(fake.date_time()) # 1993-02-01 19:19:14
+print(fake.emoji())     # 🧑‍🚀
+print(fake.first_name())    # Christine
+print(fake.free_email())    # sullivanamanda@gmail.com
+print(fake.ipv4())          # 103.19.125.13
+print(fake.ipv4_private())  # 172.26.238.74
+print(fake.ipv4_public())   # 148.21.52.81
+print(fake.last_name())     # Monroe
+print(fake.name())          # Katherine Richardson
+print(fake.password())      # +xV0yTHrA*
+</code></pre>
+<h2 id="example-of-using-faker">Example of using Faker</h2>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+name = fake.first_name_male()
+time = fake.time()
+month = fake.month_name()
+delivery_date = fake.future_datetime()
+domain = fake.domain_name()
+person = fake.name()
+email = fake.free_email()
+phone = fake.phone_number()
+
+msg = f&quot;Mr. {name}, \n&quot; \
+      f&quot;Your package has been shipped - ETA: {time} \n&quot; \
+      f&quot;on 18th {month} at your residence. \n&quot; \
+      f&quot;Estimated delivery date is {delivery_date}\n&quot; \
+      f&quot;To track your parcel, visit www.{domain}.\n&quot; \
+      f&quot;\n&quot; \
+      f&quot;Best regards,\n&quot; \
+      f&quot;{person}\n&quot; \
+      f&quot;Email:\t{email}\n&quot; \
+      f&quot;Phone:\t{phone}&quot;
+
+
+print(msg)
+</code></pre>
+<pre><code class="language-output">Mr. Brian, 
+Your package has been shipped - ETA: 14:05:44 
+on 18th July at your residence. 
+Estimated delivery date is 2023-04-08 15:29:43
+To track your parcel, visit www.poole.com.
+
+Best regards,
+Thomas Jones
+Email:  jgallegos@yahoo.com
+Phone:  +1-285-904-4881
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../../SQLAlchemy/0_sqlalchemy-info/" class="btn btn-neutral float-right" title="SQLAlchemy">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="../../../SQLAlchemy/0_sqlalchemy-info/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

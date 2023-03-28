@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Connection - NS-Lab</title>
+    <title>Work with pictures - NS-Lab</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Connection";
-        var mkdocs_page_input_path = "SQLAlchemy/1_sql_connection.md";
+        var mkdocs_page_name = "Work with pictures";
+        var mkdocs_page_input_path = "ComputerVision/01.Read_Image.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -46,7 +46,7 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../01_Python/Usefull_Libs/Faker/">Faker</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../0_sqlalchemy-info/">SQLAlchemy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
                   </li>
                   <li class="toctree-l1"><a class="" href="../../python/class.md">Test</a>
                   </li>
@@ -91,7 +91,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Connection</li>
+      <li>Work with pictures</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,45 +100,91 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="connection">Connection</h1>
-<p>Filename: <code>sql_connection.py</code></p>
-<ol>
-<li>Install:</li>
-</ol>
-<pre><code class="language-sh">pip install sqlalchemy
+                <h1 id="work-with-pictures">Work with pictures</h1>
+<h2 id="1-read-image-file">1. Read Image file</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/monkey.jpg&quot;
+
+picture = cv2.imread(filename=file, flags=1)
+cv2.imshow(winname=&quot;Original Photo&quot;, mat=picture)
+cv2.waitKey(delay=0)
 </code></pre>
 <ol>
-<li>Import libs:</li>
-<li>sqlalchemy</li>
-<li>dotenv</li>
-<li>os</li>
+<li>cv2.imread()</li>
+<li><code>(filename=file, flags=1)</code> - cv2.IMREAD_COLOR</li>
+<li><code>(filename=file, flags=-1)</code> - cv2.IMREAD_UNCHANGED</li>
+<li><code>(filename=file, flags=0)</code> - cv2.IMREAD_GRAYSCALE</li>
+<li>cv2.waitKey():</li>
+<li><code>(delay=0)</code> - None</li>
+<li><code>(delay=5000)</code> - 5 second</li>
 </ol>
-<pre><code class="language-python">from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-from dotenv import load_dotenv
-import os
+<h2 id="2-get-image-size">2. Get Image Size</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+
+dimensions = picture.shape
+height = picture.shape[0]
+width = picture.shape[1]
+channels = picture.shape[2]
+
+print('Image Dimension    : ', dimensions)
+print('Image Height       : ', height)
+print('Image Width        : ', width)
+print('Number of Channels : ', channels)
+
+cv2.waitKey(0)
 </code></pre>
-<ol>
-<li>Load environment parameters for connection:</li>
-<li>Save environment variables (connection parameters)</li>
-</ol>
-<pre><code class="language-python">load_dotenv()
-host = os.environ['SUPABASE_HOST']
-database = os.environ['SUPABASE_DB']
-port = os.environ['SUPABASE_PORT']
-username = os.environ['SUPABASE_USER']
-password = os.environ['SUPABASE_PASSWD']
+<pre><code class="language-output">Image Dimension    :  (430, 600, 3)
+Image Height       :  430
+Image Width        :  600
+Number of Channels :  3
 </code></pre>
-<ol>
-<li>Connection:</li>
-<li>engine, need for connection to database</li>
-<li>base, need for work with table</li>
-<li>session, for tasks - create, upload, commit, delete </li>
-</ol>
-<pre><code class="language-python">engine = create_engine(f'postgresql://{username}:{password}@{host}:{port}/{database}', echo=True)
-base = declarative_base()
-session_maker = sessionmaker(bind=engine)
-session = session_maker()
+<h2 id="3-resize-image">3. Resize Image</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+pic_Resized = cv2.resize(src=picture, dsize=(450, 200))
+
+print(f&quot;Original:\t {picture.shape} \n&quot;
+      f&quot;Resized:\t {pic_Resized.shape}&quot;)
+
+cv2.waitKey(0)
+</code></pre>
+<h2 id="4-crop-image">4. Crop Image</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+pic_Cropped = picture[117:309, 8:593]
+
+print(f&quot;Original:\t {picture.shape} \n&quot;
+      f&quot;Cropped:\t {pic_Cropped.shape}&quot;)
+
+cv2.imshow(&quot;Original Picture&quot;, picture)
+cv2.imshow(&quot;Image Cropped&quot;, pic_Cropped)
+
+cv2.waitKey(0)
+</code></pre>
+<h2 id="5-save-image-as-new-file">5. Save image as new file</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+pic_Resized = cv2.resize(src=picture, dsize=(450, 200))
+pic_Cropped = picture[117:309, 8:593]
+
+cv2.imwrite(&quot;Images/CroppedImage.jpg&quot;, pic_Cropped)
+cv2.imwrite(&quot;Images/ResizedImage.jpg&quot;, pic_Resized)
+
+cv2.waitKey(0)
 </code></pre>
               
             </div>
