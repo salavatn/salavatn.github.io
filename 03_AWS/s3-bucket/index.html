@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>AWS - NS-Lab</title>
+    <title>Amazon AWS - NS-Lab</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "AWS";
+        var mkdocs_page_name = "Amazon AWS";
         var mkdocs_page_input_path = "03_AWS/s3-bucket.md";
         var mkdocs_page_url = null;
       </script>
@@ -42,29 +42,59 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Python Useful Lib</span></p>
+              <p class="caption"><span class="caption-text">Python Lib</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../01_Python/Usefull_Libs/Faker/">Faker</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../01_Python/faker_test.py">Faker</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../python/class.md">Test</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../01_Python/SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Python Libs</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../../In-Progress.md">Faker</a>
-                  </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="" href="../../aws/s3-bucket.md">Amazon AWS</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Amazon AWS</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#configure-aws-cli">Configure AWS CLI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#amazon-s3-examples">Amazon S3 examples</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-create-new-bucket">1. Create new Bucket</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#simple-code">Simple code:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#code-with-exceptions">Code with exceptions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-get-list-of-bucket">2. Get list of Bucket</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-get-via-resource">2.1. Get via RESOURCE:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-get-via-client">2.2. Get via CLIENT:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-upload-file-to-bucket">3. Upload file to Bucket</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#upload-via-resource-and-put_object">Upload via "RESOURCE" and "PUT_OBJECT"</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#upload-via-client-and-upload_file">Upload via "CLIENT" and "UPLOAD_FILE"</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-check-access-permission">7. Check Access Permission</a>
+    </li>
+    </ul>
                 </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOPS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../04_DevOPS/SSH_key/">SSH Key</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../04_DevOPS/SSH_tmux/">SSH Tmux</a>
+                  </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../EnvironmentVariables/EnvVar/">DotEnv</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../In-Progress.md">Logging</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
     <ul>
@@ -91,10 +121,14 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>AWS</li>
+      <li>Amazon AWS</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../../01_Python/SQLAlchemy/0_sqlalchemy-info/" class="btn btn-neutral float-left" title="SQLAlchemy"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../04_DevOPS/SSH_key/" class="btn btn-neutral float-right" title="SSH Key">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -238,6 +272,10 @@ Permission: FULL_CONTROL
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../01_Python/SQLAlchemy/0_sqlalchemy-info/" class="btn btn-neutral float-left" title="SQLAlchemy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../04_DevOPS/SSH_key/" class="btn btn-neutral float-right" title="SSH Key">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -259,6 +297,10 @@ Permission: FULL_CONTROL
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../../01_Python/SQLAlchemy/0_sqlalchemy-info/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../04_DevOPS/SSH_key/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

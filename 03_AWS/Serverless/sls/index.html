@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Python Library: Faker - NS-Lab</title>
+    <title>Serverless - NS-Lab</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Python Library: Faker";
-        var mkdocs_page_input_path = "01_Python/Usefull_Libs/Faker.md";
+        var mkdocs_page_name = "Serverless";
+        var mkdocs_page_input_path = "03_AWS/Serverless/sls.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -44,13 +44,13 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption"><span class="caption-text">Python Lib</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../faker_test.py">Faker</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../01_Python/faker_test.py">Faker</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../01_Python/SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
                   </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../../03_AWS/s3-bucket/">Amazon AWS</a>
+                <li class="toctree-l1"><a class="reference internal" href="../../s3-bucket/">Amazon AWS</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">DevOPS</span></p>
@@ -89,7 +89,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Python Library: Faker</li>
+      <li>Serverless</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -98,127 +98,82 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="python-library-faker">Python Library: Faker</h1>
-<p>Faker provide you fake data for test project.</p>
-<ul>
-<li><a href="#install-and-check">Install and check</a></li>
-<li><a href="#simple-example">Simple Example</a></li>
-<li><a href="#search-available-parameters">Search available Parameters</a></li>
-<li><a href="#popular-parameters">Popular parameters</a></li>
-<li><a href="#example-of-using-faker">Example of using Faker</a></li>
-</ul>
-<h2 id="install-and-check">Install and check</h2>
-<p><a href="https://pypi.org/project/Faker/">PyPi Link</a></p>
-<pre><code class="language-sh">pip install Faker
+                <h1 id="serverless">Serverless</h1>
+<h2 id="usage-cli">Usage CLI</h2>
+<p>Вы можете использовать сокращение команды <code>sls</code></p>
+<pre><code>serverless &lt;command&gt; &lt;options&gt;
+sls &lt;command&gt; &lt;options&gt;
 </code></pre>
-<pre><code class="language-sh">pip list
+<h2 id="create-template-project">Create Template Project</h2>
+<pre><code class="language-sh">sls create --template aws-python3 --path . --name SLS_AWS_PY
 </code></pre>
-<pre><code class="language-output">Package            Version
------------------- -------
-Faker              18.3.0
+<h3 id="created-files">Created Files:</h3>
+<p>handler.py</p>
+<pre><code class="language-python">import json
+
+def hello(event, context):
+    body = {
+        &quot;message&quot;: &quot;Go Serverless v1.0! Your function executed successfully!&quot;,
+        &quot;input&quot;: event
+    }
+
+    response = {
+        &quot;statusCode&quot;: 200,
+        &quot;body&quot;: json.dumps(body)
+    }
+
+    return response
 </code></pre>
-<h2 id="simple-example">Simple Example</h2>
-<pre><code class="language-python">from faker import Faker
+<pre><code class="language-yml">service: SLS_AWS_PY
+frameworkVersion: '3'
 
-fake = Faker()
+provider:
+  name: aws
+  runtime: python3.9
 
-name = fake.name()
-country = fake.country()
-
-print(f&quot;{name} from {country}!&quot;)
+functions:
+  hello:
+    handler: handler.hello
 </code></pre>
-<pre><code class="language-output">Daniel Foster from Madagascar!
+<h2 id="create-own-simple-project">Create own simple project</h2>
+<h3 id="1-create-files">1. Create Files:</h3>
+<pre><code class="language-sh">touch webapp.py
+touch serverless.yml
 </code></pre>
-<h2 id="search-available-parameters">Search available Parameters</h2>
-<pre><code class="language-python">from faker import Faker
+<h3 id="2-webapppy">2. WebApp.py</h3>
+<pre><code class="language-python">import json
 
-fake = Faker()
+def get_user(event, context):
+    name = &quot;Salavat&quot;
+    surname = &quot;Nigmatullin&quot;
 
-keyword = &quot;credit&quot;      # What are you looking for?
-parameters = dir(fake)
+    msg = f&quot;Hello, {name} {surname}!&quot;
+    data = {&quot;message&quot;: msg, &quot;input&quot;: event}
+    response = {&quot;statusCode&quot;: 200, &quot;body&quot;: json.dumps(data)}
 
-for element in parameters:
-    if keyword in element:
-        print(element)
+    return response
+
 </code></pre>
-<pre><code class="language-output">credit_card_expire
-credit_card_full
-credit_card_number
-credit_card_provider
-credit_card_security_code
+<h3 id="3-serverlessyml">3. ServerLess.yml</h3>
+<pre><code class="language-yml">service: MyService
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.9
+
+functions:
+  MyFuncHome:
+    handler: webapp.get_user
 </code></pre>
-<pre><code class="language-python">from faker import Faker
-
-fake = Faker()
-
-credit_card = fake.credit_card_full()
-print(credit_card)
-</code></pre>
-<pre><code class="language-result">Mastercard
-Brenda Johnson
-2681694391010925 11/29
-CVV: 925
-</code></pre>
-<h2 id="popular-parameters">Popular parameters</h2>
-<pre><code class="language-python">from faker import Faker
-
-fake = Faker()
-
-print(fake.chrome())    # Mozilla/5.0 (Linux; Android 4.2) AppleWebKit/534.1 (KHTML, like Gecko) Chrome/26.0.898.0 Safari/534.1
-print(fake.city())      # Williamston
-print(fake.color())     # #39ddd8
-print(fake.company())   # Powell Ltd
-print(fake.credit_card_number()) # 4773904006800585
-print(fake.date())      # 1996-06-10
-print(fake.date_time()) # 1993-02-01 19:19:14
-print(fake.emoji())     # 🧑‍🚀
-print(fake.first_name())    # Christine
-print(fake.free_email())    # sullivanamanda@gmail.com
-print(fake.ipv4())          # 103.19.125.13
-print(fake.ipv4_private())  # 172.26.238.74
-print(fake.ipv4_public())   # 148.21.52.81
-print(fake.last_name())     # Monroe
-print(fake.name())          # Katherine Richardson
-print(fake.password())      # +xV0yTHrA*
-</code></pre>
-<h2 id="example-of-using-faker">Example of using Faker</h2>
-<pre><code class="language-python">from faker import Faker
-
-fake = Faker()
-
-name = fake.first_name_male()
-time = fake.time()
-month = fake.month_name()
-delivery_date = fake.future_datetime()
-domain = fake.domain_name()
-person = fake.name()
-email = fake.free_email()
-phone = fake.phone_number()
-
-msg = f&quot;Mr. {name}, \n&quot; \
-      f&quot;Your package has been shipped - ETA: {time} \n&quot; \
-      f&quot;on 18th {month} at your residence. \n&quot; \
-      f&quot;Estimated delivery date is {delivery_date}\n&quot; \
-      f&quot;To track your parcel, visit www.{domain}.\n&quot; \
-      f&quot;\n&quot; \
-      f&quot;Best regards,\n&quot; \
-      f&quot;{person}\n&quot; \
-      f&quot;Email:\t{email}\n&quot; \
-      f&quot;Phone:\t{phone}&quot;
-
-
-print(msg)
-</code></pre>
-<pre><code class="language-output">Mr. Brian, 
-Your package has been shipped - ETA: 14:05:44 
-on 18th July at your residence. 
-Estimated delivery date is 2023-04-08 15:29:43
-To track your parcel, visit www.poole.com.
-
-Best regards,
-Thomas Jones
-Email:  jgallegos@yahoo.com
-Phone:  +1-285-904-4881
+<h3 id="4-serverless-deploy">4. Serverless Deploy</h3>
+<h2 id="commands">Commands:</h2>
+<pre><code class="language-sh">sls --version
+sls create --template &quot;aws-python3&quot; --path . --name &quot;name&quot;
+sls deploy
+sls info 
+sls deploy function -f &quot;name&quot;
+sls remove &quot;name&quot;
 </code></pre>
               
             </div>

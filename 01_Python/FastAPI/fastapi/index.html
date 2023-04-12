@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Python Library: Faker - NS-Lab</title>
+    <title>Fastapi - NS-Lab</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Python Library: Faker";
-        var mkdocs_page_input_path = "01_Python/Usefull_Libs/Faker.md";
+        var mkdocs_page_name = "Fastapi";
+        var mkdocs_page_input_path = "01_Python/FastAPI/fastapi.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -89,7 +89,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Python Library: Faker</li>
+      <li>Fastapi</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -98,127 +98,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="python-library-faker">Python Library: Faker</h1>
-<p>Faker provide you fake data for test project.</p>
-<ul>
-<li><a href="#install-and-check">Install and check</a></li>
-<li><a href="#simple-example">Simple Example</a></li>
-<li><a href="#search-available-parameters">Search available Parameters</a></li>
-<li><a href="#popular-parameters">Popular parameters</a></li>
-<li><a href="#example-of-using-faker">Example of using Faker</a></li>
-</ul>
-<h2 id="install-and-check">Install and check</h2>
-<p><a href="https://pypi.org/project/Faker/">PyPi Link</a></p>
-<pre><code class="language-sh">pip install Faker
-</code></pre>
-<pre><code class="language-sh">pip list
-</code></pre>
-<pre><code class="language-output">Package            Version
------------------- -------
-Faker              18.3.0
-</code></pre>
-<h2 id="simple-example">Simple Example</h2>
-<pre><code class="language-python">from faker import Faker
+                <pre><code class="language-python">from fastapi import FastAPI, HTTPException
+from faker import Faker
+from datetime import datetime
+import random
+
 
 fake = Faker()
 
-name = fake.name()
-country = fake.country()
-
-print(f&quot;{name} from {country}!&quot;)
-</code></pre>
-<pre><code class="language-output">Daniel Foster from Madagascar!
-</code></pre>
-<h2 id="search-available-parameters">Search available Parameters</h2>
-<pre><code class="language-python">from faker import Faker
-
-fake = Faker()
-
-keyword = &quot;credit&quot;      # What are you looking for?
-parameters = dir(fake)
-
-for element in parameters:
-    if keyword in element:
-        print(element)
-</code></pre>
-<pre><code class="language-output">credit_card_expire
-credit_card_full
-credit_card_number
-credit_card_provider
-credit_card_security_code
-</code></pre>
-<pre><code class="language-python">from faker import Faker
-
-fake = Faker()
-
-credit_card = fake.credit_card_full()
-print(credit_card)
-</code></pre>
-<pre><code class="language-result">Mastercard
-Brenda Johnson
-2681694391010925 11/29
-CVV: 925
-</code></pre>
-<h2 id="popular-parameters">Popular parameters</h2>
-<pre><code class="language-python">from faker import Faker
-
-fake = Faker()
-
-print(fake.chrome())    # Mozilla/5.0 (Linux; Android 4.2) AppleWebKit/534.1 (KHTML, like Gecko) Chrome/26.0.898.0 Safari/534.1
-print(fake.city())      # Williamston
-print(fake.color())     # #39ddd8
-print(fake.company())   # Powell Ltd
-print(fake.credit_card_number()) # 4773904006800585
-print(fake.date())      # 1996-06-10
-print(fake.date_time()) # 1993-02-01 19:19:14
-print(fake.emoji())     # 🧑‍🚀
-print(fake.first_name())    # Christine
-print(fake.free_email())    # sullivanamanda@gmail.com
-print(fake.ipv4())          # 103.19.125.13
-print(fake.ipv4_private())  # 172.26.238.74
-print(fake.ipv4_public())   # 148.21.52.81
-print(fake.last_name())     # Monroe
-print(fake.name())          # Katherine Richardson
-print(fake.password())      # +xV0yTHrA*
-</code></pre>
-<h2 id="example-of-using-faker">Example of using Faker</h2>
-<pre><code class="language-python">from faker import Faker
-
-fake = Faker()
-
-name = fake.first_name_male()
-time = fake.time()
-month = fake.month_name()
-delivery_date = fake.future_datetime()
-domain = fake.domain_name()
-person = fake.name()
-email = fake.free_email()
-phone = fake.phone_number()
-
-msg = f&quot;Mr. {name}, \n&quot; \
-      f&quot;Your package has been shipped - ETA: {time} \n&quot; \
-      f&quot;on 18th {month} at your residence. \n&quot; \
-      f&quot;Estimated delivery date is {delivery_date}\n&quot; \
-      f&quot;To track your parcel, visit www.{domain}.\n&quot; \
-      f&quot;\n&quot; \
-      f&quot;Best regards,\n&quot; \
-      f&quot;{person}\n&quot; \
-      f&quot;Email:\t{email}\n&quot; \
-      f&quot;Phone:\t{phone}&quot;
+cities = ['Michaelburgh', 'Christopherville', 'Stephaniechester', 'East Robert', 'East Valerie', 
+          'Lake Jamesfurt', 'Markbury', 'West Alejandro', 'Russellfort', 'Masonport', 
+          'Lake Anthony', 'Lake Davidville', 'Port Cheyenne', 'Michaelside', 'New Lori', 
+          'Dustinville', 'Peterchester', 'Christopherborough', 'North Melissaburgh']
 
 
-print(msg)
-</code></pre>
-<pre><code class="language-output">Mr. Brian, 
-Your package has been shipped - ETA: 14:05:44 
-on 18th July at your residence. 
-Estimated delivery date is 2023-04-08 15:29:43
-To track your parcel, visit www.poole.com.
+app = FastAPI(
+    title=&quot;Password Generator API&quot;, 
+    version=&quot;version 1.0.45&quot;, 
+    description=&quot;This API provide random passwords&quot;,
+    terms_of_service=&quot;https://example.com/terms/&quot;, 
+    contact={&quot;email&quot;: &quot;salavat@nigmatullin.net&quot;},
+    license_info={&quot;name&quot;: &quot;MIT License&quot;, &quot;url&quot;: &quot;https://example.com/license&quot;},
+    )
 
-Best regards,
-Thomas Jones
-Email:  jgallegos@yahoo.com
-Phone:  +1-285-904-4881
+
+@app.get(&quot;/home&quot;)
+async def home_page():
+    firstname = fake.first_name()
+    lastname = fake.last_name()
+    email = fake.email()
+    data = {&quot;user&quot;: f&quot;{firstname} {lastname}&quot;,
+            &quot;email&quot;: f&quot;{email}&quot;}
+    return data
+
+
+@app.get(&quot;/pswd&quot;)
+async def get_password():
+    password = fake.password()
+    data = {&quot;password&quot;: f&quot;{password}&quot;}
+    return data
+
+
+@app.get(&quot;/time&quot;)
+async def get_current_time():
+    current_time = datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)
+    data = {&quot;current_time&quot;: f&quot;{current_time}&quot;}
+    return data
+
+
+@app.get(&quot;/city/rand&quot;)
+async def get_random_city():
+    city = random.choice(cities)
+    number = cities.index(city)
+    data = {&quot;city&quot;: city, &quot;city_id&quot;: number}
+    return data
+
+
+
+@app.get(&quot;/city/{city_id}&quot;)
+async def get_city_by_id(city_id: int):
+
+    if city_id &lt; 0 or city_id &gt; len(cities):
+        raise HTTPException(status_code=404, detail=f&quot;City not found! Index {city_id} is out of range!&quot;)
+
+    else:
+        data = {&quot;city&quot;: f&quot;{cities[city_id]}&quot;}
+        return data
+
+
+
+
+@app.get(&quot;/city&quot;)
+async def get_city_name():
+    data = {&quot;city&quot;: f&quot;{cities}&quot;}
+    return data
+
+
+@app.post(&quot;/city&quot;)
+async def add_city(city: str):
+    cities.append(city)
+    city_index = cities.index(city)
+    data = {&quot;city&quot;: cities[city_index], &quot;city_id&quot;: city_index} 
+    return data
+
+
 </code></pre>
               
             </div>

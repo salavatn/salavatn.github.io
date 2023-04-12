@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Test - NS-Labs</title>
+    <title>SSH Tmux - NS-Lab</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Test";
-        var mkdocs_page_input_path = "python/class.md";
+        var mkdocs_page_name = "SSH Tmux";
+        var mkdocs_page_input_path = "04_DevOPS/SSH_tmux.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -33,7 +33,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> NS-Labs
+          <a href="../.." class="icon icon-home"> NS-Lab
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -42,19 +42,26 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Python Lib</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../aws/s3-bucket/">Amazon AWS</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../01_Python/faker_test.py">Faker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../01_Python/SQLAlchemy/0_sqlalchemy-info/">SQLAlchemy</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../03_AWS/s3-bucket/">Amazon AWS</a>
                 </li>
               </ul>
-              <p class="caption"><span class="caption-text">Python Learn</span></p>
+              <p class="caption"><span class="caption-text">DevOPS</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../../SQLAlchemy/0_sqlalchemy-info/">SQL Alchemy</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../SSH_key/">SSH Key</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Test</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">SSH Tmux</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1-list">Пример 1 - list</a>
+    <li class="toctree-l2"><a class="reference internal" href="#create-new-session">Create New Session</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2-int">Пример 2 - int</a>
+    <li class="toctree-l2"><a class="reference internal" href="#delete-session">Delete Session</a>
     </li>
     </ul>
                   </li>
@@ -62,10 +69,6 @@
               <p class="caption"><span class="caption-text">Tools</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../../EnvironmentVariables/EnvVar/">DotEnv</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../In-Progress.md">Faker</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../In-Progress.md">Logging</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
     <ul>
@@ -85,20 +88,20 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">NS-Labs</a>
+          <a href="../..">NS-Lab</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Python Learn &raquo;</li>
-      <li>Test</li>
+          <li>DevOPS &raquo;</li>
+      <li>SSH Tmux</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
     <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
-        <a href="../../SQLAlchemy/0_sqlalchemy-info/" class="btn btn-neutral float-left" title="SQL Alchemy"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../SSH_key/" class="btn btn-neutral float-left" title="SSH Key"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
         <a href="../../EnvironmentVariables/EnvVar/" class="btn btn-neutral float-right" title="DotEnv">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
     </div>
   <hr/>
@@ -106,71 +109,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="objects">Objects (Объекты)</h1>
-<p>Объект - этой контейнер состоящий из:
-1. Данных (Attributes) и состояний
-2. Поведения (Method)</p>
-<p>По содержимому можно определить тип данных</p>
-<h2 id="1-list">Пример 1 - list</h2>
-<p><strong>Attributes:</strong> - значения в списке</p>
-<pre><code class="language-python">mylist = [&quot;BMW&quot;,&quot;Kia&quot;, &quot;Audi&quot;, &quot;Ford&quot;]
-print(type(mylist))   # &lt;class 'list'&gt;
+                <h1 id="terminal-multiplexer-tmux">Terminal Multiplexer (Tmux)</h1>
+<p>"Tmux (Terminal Multiplexer) is a free and open-source program for managing multiple virtual terminals inside one physical terminal. With tmux, you can split your terminal into multiple windows and panes, switch between them, and run multiple terminal sessions in one window. Additionally, tmux allows you to save terminal sessions and restore them at any time, which can be very useful for working with long-running processes.</p>
+<p>Tmux can be especially useful for developers and system administrators who often work with multiple terminals and processes simultaneously. It can also be useful for users who want to use the same terminal to run multiple tasks, including for remote server management."</p>
+<h2 id="create-new-session">Create New Session</h2>
+<ol>
+<li>Start a new Tmux session with the name "Ping_Google_com":</li>
+</ol>
+<pre><code class="language-sh">tmux new-session -s Ping_Google_com
 </code></pre>
-<p><strong>Methods:</strong> Возможные поведения для списка</p>
-<pre><code class="language-python">mylist.count()
-mylist.append()
-mylist.sort()
-mylist.pop()
-mylist.index()
-mylist.remove()
-mylist.insert()
-mylist.extend()
-mylist.copy()
-mylist.clear()
+<ol>
+<li>Ping Google.com</li>
+</ol>
+<pre><code class="language-sh">svc-admin@ubuntu:~$ ping google.com
+PING google.com (173.194.222.113) 56(84) bytes of data.
+64 bytes from lo-in-f113.1e100.net (173.194.222.113): icmp_seq=1 ttl=53 time=36.6 ms
+64 bytes from lo-in-f113.1e100.net (173.194.222.113): icmp_seq=2 ttl=53 time=36.4 ms
+64 bytes from lo-in-f113.1e100.net (173.194.222.113): icmp_seq=3 ttl=53 time=36.5 ms
+64 bytes from lo-in-f113.1e100.net (173.194.222.113): icmp_seq=4 ttl=53 time=36.6 ms
 </code></pre>
-<p><strong>Examples:</strong></p>
-<pre><code class="language-python">print(mylist)               # ['BMW', 'Kia', 'Audi', 'Ford']
-print(mylist.count(&quot;BMW&quot;))  # 1
-print(mylist.index(&quot;BMW&quot;))  # 0
-
-newlist = mylist.copy()     # ['BMW', 'Kia', 'Audi', 'Ford']
-
-mylist.append(&quot;Nissan&quot;)     # ['BMW', 'Kia', 'Audi', 'Ford', 'Nissan']
-mylist.sort()               # ['Audi', 'BMW', 'Ford', 'Kia', 'Nissan']
-mylist.pop()                # ['Audi', 'BMW', 'Ford', 'Kia']
-mylist.remove(&quot;BMW&quot;)        # ['Audi', 'Ford', 'Kia']
-mylist.insert(0, &quot;Dodge&quot;)   # ['Dodge', 'Audi', 'Ford', 'Kia']
-mylist.extend(mylist)       # ['Dodge', 'Audi', 'Ford', 'Kia', 'Dodge', 'Audi', 'Ford', 'Kia']
-mylist.extend(mylist)       # []
+<ol>
+<li>
+<p>To detach from the current Tmux session and leave the ping running, use the hotkey  <code>Ctrl+B</code> and then press <code>D</code>. </p>
+</li>
+<li>
+<p>List the existing Tmux sessions to verify that the <code>"Ping_Google_com"</code> session is still running:</p>
+</li>
+</ol>
+<pre><code class="language-sh">tmux list-sessions
 </code></pre>
-<h2 id="2-int">Пример 2 - int</h2>
-<p><strong>Attributes:</strong> - значение целое число</p>
-<pre><code class="language-python">mynumber = 1999
-print(type(mynumber)) # &lt;class 'int'&gt;
+<ol>
+<li>The output should be similar to this:</li>
+</ol>
+<pre><code>Ping_Google_com: 1 windows (created Wed Apr 12 10:03:11 2023)
 </code></pre>
-<p><strong>Methods:</strong> Возможные поведения для целых чисел</p>
-<pre><code class="language-python">mynumber.to_bytes()
-mynumber.conjugate()
-mynumber.as_integer_ratio()
-mynumber.bit_count()
-mynumber.bit_length()
-mynumber.from_bytes()
+<ol>
+<li>To reattach to the <code>"Ping_Google_com"</code> session and see the output of the ping command, use the following command:</li>
+</ol>
+<pre><code class="language-sh">tmux attach-session -t Ping_Google_com
 </code></pre>
-<h1 id="class">Class</h1>
-<pre><code class="language-python">class Person:
-  name = 'Jared'
-  age = 30
-
-print(Person.name)
-print(Person.age)
+<ol>
+<li>This will reattach you to the Tmux session and you can see the output of the ping command. You can detach from the session again using the hotkey <code>Ctrl+B</code> and then pressing <code>D</code>.</li>
+</ol>
+<h2 id="delete-session">Delete Session</h2>
+<ol>
+<li>To close a Tmux session, you first need to detach from it. You can do this by using the hotkey <code>Ctrl-B</code> and then pressing <code>D</code>.</li>
+<li>Once you have detached from the session, you can close it by using the <code>tmux kill-session</code> command followed by the name or ID of the session you want to close.</li>
+<li>Check list session:</li>
+</ol>
+<pre><code class="language-sh">tmux list-sessions
 </code></pre>
-<p>name и age - являются Attribute, при обращении к классу:
-Class.attribute</p>
+<pre><code>Ping_Google_com: 1 windows (created Wed Apr 12 10:03:11 2023)
+start-web-server: 1 windows (created Wed Apr 12 10:01:46 2023)
+</code></pre>
+<ol>
+<li>tmux kill-session -t Ping_Google_com</li>
+</ol>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../../SQLAlchemy/0_sqlalchemy-info/" class="btn btn-neutral float-left" title="SQL Alchemy"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../SSH_key/" class="btn btn-neutral float-left" title="SSH Key"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../../EnvironmentVariables/EnvVar/" class="btn btn-neutral float-right" title="DotEnv">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -194,7 +193,7 @@ Class.attribute</p>
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../../SQLAlchemy/0_sqlalchemy-info/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../SSH_key/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../../EnvironmentVariables/EnvVar/" style="color: #fcfcfc">Next &raquo;</a></span>
