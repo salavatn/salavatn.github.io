@@ -46,7 +46,7 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Faker</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#preview">Preview</a>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to use</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#simple-example">Simple example</a>
     </li>
@@ -122,7 +122,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="faker">Faker</h1>
-<h2 id="preview">Preview</h2>
+<h2 id="how-to-use">How to use</h2>
 <p>The Faker library in Python is a tool for generating fake data such as names, addresses, phone numbers, and more. Here are some steps to use Faker library in Python:</p>
 <ol>
 <li>Install the Faker library by running the following command in your terminal or command prompt:</li>
@@ -155,16 +155,15 @@ city = fake.city()
 
 print(f&quot;Hello {name}, your email is {email} and you live in {city}&quot;)
 </code></pre>
+<p><strong>Result:</strong></p>
 <pre><code>Hello John Cohen, your email is michael82@example.com and you live in Lanemouth
-</code></pre>
-<pre><code>Hello William Ellis, your email is lpollard@example.com and you live in South Connie
-</code></pre>
-<pre><code>Hello Garrett Jones, your email is smithryan@example.com and you live in Morrowton
+
+Hello William Ellis, your email is lpollard@example.com and you live in South Connie
+
+Hello Garrett Jones, your email is smithryan@example.com and you live in Morrowton
 </code></pre>
 <h2 id="search-available-fake-keywords">Search available fake keywords:</h2>
-<ol>
-<li>To search for available Faker methods related to a specific keyword, define a function that iterates through the available attributes of the Faker instance and prints the ones that contain the keyword:</li>
-</ol>
+<p>To search for available Faker methods related to a specific keyword, define a function that iterates through the available attributes of the Faker instance and prints the ones that contain the keyword:</p>
 <pre><code class="language-python">from faker import Faker
 
 fake = Faker()
@@ -182,22 +181,21 @@ search_fake(search)
 
 fake = Faker()
 
-print(fake.chrome())    # Mozilla/5.0 (Linux; Android 4.2) AppleWebKit/534.1
-print(fake.city())      # Williamston
-print(fake.color())     # #39ddd8
-print(fake.company())   # Powell Ltd
+print(fake.city())          # Williamston
+print(fake.color())         # #39ddd8
+print(fake.company())       # Powell Ltd
 print(fake.credit_card_number()) # 4773904006800585
-print(fake.date())      # 1996-06-10
-print(fake.date_time()) # 1993-02-01 19:19:14
-print(fake.emoji())     # 🧑‍🚀
+print(fake.date())          # 1996-06-10
+print(fake.date_time())     # 1993-02-01 19:19:14
+print(fake.emoji())         # 🧑‍🚀
 print(fake.first_name())    # Christine
 print(fake.free_email())    # sullivanamanda@gmail.com
-print(fake.ipv4())      # 103.19.125.13
+print(fake.ipv4())          # 103.19.125.13
 print(fake.ipv4_private())  # 172.26.238.74
 print(fake.ipv4_public())   # 148.21.52.81
 print(fake.last_name())     # Monroe
-print(fake.name())      # Katherine Richardson
-print(fake.password())  # +xV0yTHrA*
+print(fake.name())          # Katherine Richardson
+print(fake.password())      # +xV0yTHrA*
 </code></pre>
               
             </div>
