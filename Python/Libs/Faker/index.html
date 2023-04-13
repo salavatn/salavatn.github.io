@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Faker - NS-Lab</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Faker";
+        var mkdocs_page_input_path = "Python/Libs/Faker.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> NS-Lab
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Python Libs</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Faker</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#preview">Preview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-example">Simple example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#search-available-fake-keywords">Search available fake keywords:</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#popular-examples">Popular examples:</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dotEnv/">DotEnv</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python ORM</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ORM/SQLAlchemy/sqlalchemy-info/">SQLAlchemy</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python Framework</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Framework/fastapi/">FastAPI</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Amazon AWS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../AWS/s3-bucket/">S3 Bucket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOPS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../DevOPS/SSH_key/">SSH Key</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../DevOPS/SSH_tmux/">SSH Tmux</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/info/">About</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/GH-Actions/">GitHub Actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/ConfigYAMLexamples/">Examples</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">NS-Lab</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Python Libs &raquo;</li>
+      <li>Faker</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../dotEnv/" class="btn btn-neutral float-right" title="DotEnv">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="faker">Faker</h1>
+<h2 id="preview">Preview</h2>
+<p>The Faker library in Python is a tool for generating fake data such as names, addresses, phone numbers, and more. Here are some steps to use Faker library in Python:</p>
+<ol>
+<li>Install the Faker library by running the following command in your terminal or command prompt:</li>
+</ol>
+<pre><code class="language-sh">pip install Faker
+</code></pre>
+<ol>
+<li>Import the Faker library at the beginning of your Python code:</li>
+</ol>
+<pre><code class="language-python">from faker import Faker
+</code></pre>
+<ol>
+<li>Create an instance of the Faker class:</li>
+</ol>
+<pre><code class="language-python">fake = Faker()
+</code></pre>
+<ol>
+<li>Use the Faker instance to generate fake data. For example, to generate a fake name:</li>
+</ol>
+<pre><code>name = fake.name()
+</code></pre>
+<h2 id="simple-example">Simple example</h2>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+name = fake.name()
+email = fake.email()
+city = fake.city()
+
+print(f&quot;Hello {name}, your email is {email} and you live in {city}&quot;)
+</code></pre>
+<pre><code>Hello John Cohen, your email is michael82@example.com and you live in Lanemouth
+</code></pre>
+<pre><code>Hello William Ellis, your email is lpollard@example.com and you live in South Connie
+</code></pre>
+<pre><code>Hello Garrett Jones, your email is smithryan@example.com and you live in Morrowton
+</code></pre>
+<h2 id="search-available-fake-keywords">Search available fake keywords:</h2>
+<ol>
+<li>To search for available Faker methods related to a specific keyword, define a function that iterates through the available attributes of the Faker instance and prints the ones that contain the keyword:</li>
+</ol>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+def search_fake(keyword):
+    for attribute in dir(fake):
+        if keyword in attribute:
+            print(attribute)
+
+search = &quot;country&quot;
+search_fake(search)
+</code></pre>
+<h2 id="popular-examples">Popular examples:</h2>
+<pre><code class="language-python">from faker import Faker
+
+fake = Faker()
+
+print(fake.chrome())    # Mozilla/5.0 (Linux; Android 4.2) AppleWebKit/534.1
+print(fake.city())      # Williamston
+print(fake.color())     # #39ddd8
+print(fake.company())   # Powell Ltd
+print(fake.credit_card_number()) # 4773904006800585
+print(fake.date())      # 1996-06-10
+print(fake.date_time()) # 1993-02-01 19:19:14
+print(fake.emoji())     # 🧑‍🚀
+print(fake.first_name())    # Christine
+print(fake.free_email())    # sullivanamanda@gmail.com
+print(fake.ipv4())      # 103.19.125.13
+print(fake.ipv4_private())  # 172.26.238.74
+print(fake.ipv4_public())   # 148.21.52.81
+print(fake.last_name())     # Monroe
+print(fake.name())      # Katherine Richardson
+print(fake.password())  # +xV0yTHrA*
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../dotEnv/" class="btn btn-neutral float-right" title="DotEnv">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="../dotEnv/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

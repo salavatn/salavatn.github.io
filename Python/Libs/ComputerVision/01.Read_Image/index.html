@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Work with pictures - NS-Lab</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Work with pictures";
+        var mkdocs_page_input_path = "Python/Libs/ComputerVision/01.Read_Image.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> NS-Lab
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Python Libs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Faker/">Faker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dotEnv/">DotEnv</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python ORM</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../ORM/SQLAlchemy/sqlalchemy-info/">SQLAlchemy</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python Framework</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../Framework/fastapi/">FastAPI</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Amazon AWS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../AWS/s3-bucket/">S3 Bucket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOPS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../DevOPS/SSH_key/">SSH Key</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../DevOPS/SSH_tmux/">SSH Tmux</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../mkdocs/info/">About</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../mkdocs/GH-Actions/">GitHub Actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../../mkdocs/ConfigYAMLexamples/">Examples</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">NS-Lab</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Work with pictures</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="work-with-pictures">Work with pictures</h1>
+<h2 id="1-read-image-file">1. Read Image file</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/monkey.jpg&quot;
+
+picture = cv2.imread(filename=file, flags=1)
+cv2.imshow(winname=&quot;Original Photo&quot;, mat=picture)
+cv2.waitKey(delay=0)
+</code></pre>
+<ol>
+<li>cv2.imread()</li>
+<li><code>(filename=file, flags=1)</code> - cv2.IMREAD_COLOR</li>
+<li><code>(filename=file, flags=-1)</code> - cv2.IMREAD_UNCHANGED</li>
+<li><code>(filename=file, flags=0)</code> - cv2.IMREAD_GRAYSCALE</li>
+<li>cv2.waitKey():</li>
+<li><code>(delay=0)</code> - None</li>
+<li><code>(delay=5000)</code> - 5 second</li>
+</ol>
+<h2 id="2-get-image-size">2. Get Image Size</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+
+dimensions = picture.shape
+height = picture.shape[0]
+width = picture.shape[1]
+channels = picture.shape[2]
+
+print('Image Dimension    : ', dimensions)
+print('Image Height       : ', height)
+print('Image Width        : ', width)
+print('Number of Channels : ', channels)
+
+cv2.waitKey(0)
+</code></pre>
+<pre><code class="language-output">Image Dimension    :  (430, 600, 3)
+Image Height       :  430
+Image Width        :  600
+Number of Channels :  3
+</code></pre>
+<h2 id="3-resize-image">3. Resize Image</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+pic_Resized = cv2.resize(src=picture, dsize=(450, 200))
+
+print(f&quot;Original:\t {picture.shape} \n&quot;
+      f&quot;Resized:\t {pic_Resized.shape}&quot;)
+
+cv2.waitKey(0)
+</code></pre>
+<h2 id="4-crop-image">4. Crop Image</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+pic_Cropped = picture[117:309, 8:593]
+
+print(f&quot;Original:\t {picture.shape} \n&quot;
+      f&quot;Cropped:\t {pic_Cropped.shape}&quot;)
+
+cv2.imshow(&quot;Original Picture&quot;, picture)
+cv2.imshow(&quot;Image Cropped&quot;, pic_Cropped)
+
+cv2.waitKey(0)
+</code></pre>
+<h2 id="5-save-image-as-new-file">5. Save image as new file</h2>
+<pre><code class="language-python">import cv2
+
+file = &quot;Images/car.jpeg&quot;
+
+picture = cv2.imread(file)
+pic_Resized = cv2.resize(src=picture, dsize=(450, 200))
+pic_Cropped = picture[117:309, 8:593]
+
+cv2.imwrite(&quot;Images/CroppedImage.jpg&quot;, pic_Cropped)
+cv2.imwrite(&quot;Images/ResizedImage.jpg&quot;, pic_Resized)
+
+cv2.waitKey(0)
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme_extra.js" defer></script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

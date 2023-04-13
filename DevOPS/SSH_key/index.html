@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>SSH Key - NS-Lab</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SSH Key";
+        var mkdocs_page_input_path = "DevOPS/SSH_key.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> NS-Lab
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Python Libs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Python/Libs/Faker/">Faker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Python/Libs/dotEnv/">DotEnv</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python ORM</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Python/ORM/SQLAlchemy/sqlalchemy-info/">SQLAlchemy</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python Framework</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Python/Framework/fastapi/">FastAPI</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Amazon AWS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AWS/s3-bucket/">S3 Bucket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOPS</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">SSH Key</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#generating-a-ssh-key">Generating a SSH key</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-ssh-key-to-a-remote-server">Add SSH key to a remote server</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SSH_tmux/">SSH Tmux</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/info/">About</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/GH-Actions/">GitHub Actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/ConfigYAMLexamples/">Examples</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">NS-Lab</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>DevOPS &raquo;</li>
+      <li>SSH Key</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../../AWS/s3-bucket/" class="btn btn-neutral float-left" title="S3 Bucket"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../SSH_tmux/" class="btn btn-neutral float-right" title="SSH Tmux">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ssh-key">SSH Key</h1>
+<ul>
+<li><a href="#ssh-key">SSH Key</a></li>
+<li><a href="#generating-a-ssh-key">Generating a SSH key</a></li>
+<li><a href="#add-ssh-key-to-a-remote-server">Add SSH key to a remote server</a></li>
+</ul>
+<h2 id="generating-a-ssh-key">Generating a SSH key</h2>
+<p>This instruction will help you generate an ed25519 SSH key using the ssh-keygen command and save it on your computer. An SSH key is used for authentication when connecting to a remote server via the SSH protocol.</p>
+<ol>
+<li>Open a terminal on your computer.
+Enter the command:</li>
+</ol>
+<pre><code class="language-sh">$ cd ~/.ssh
+$ ssh-keygen -t ed25519 -C &quot;SSH key for my Ubuntu&quot;
+</code></pre>
+<ol>
+<li>The ssh-keygen program will prompt you to specify the filename to save the key. By default, it suggests saving the key in the <code>id_ed25519</code> file in the <code>.ssh</code> directory in your home folder. We recommend using a more informative filename to easily identify which key corresponds to which server. Enter <code>Ubuntu_Key</code> as the filename and press Enter.</li>
+</ol>
+<pre><code class="language-output">Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/salavat/.ssh/id_ed25519): Ubuntu_Key
+</code></pre>
+<ol>
+<li>The ssh-keygen program will prompt you to enter a passphrase to protect the key. This passphrase will be requested each time the key is used to connect to a remote server. Enter the passphrase and press Enter.</li>
+</ol>
+<pre><code class="language-output">Enter passphrase (empty for no passphrase): ********
+Enter same passphrase again: ********
+</code></pre>
+<ol>
+<li>Your SSH key has been successfully created and saved to the file <code>/Users/salavat/.ssh/Ubuntu_Key</code>. The ssh-keygen program will display the key fingerprint and a "randomart" image to verify that the key was created correctly.</li>
+</ol>
+<pre><code class="language-output">Your identification has been saved in Ubuntu_Key
+Your public key has been saved in Ubuntu_Key.pub
+The key fingerprint is:
+SHA256:bhun9UY/6bBRL3XixMzmuVw0w6Gl0hEh9isFd5oN+C8 SSH key for my Ubuntu
+The key's randomart image is:
++--[ED25519 256]--+
+|           +.=.. |
+|          ..= B  |
+|            .* + |
+|            o=B .|
+|        S  o =X++|
+|       .    +E B+|
+|        + o.o.*.o|
+|       . * ..=++ |
+|        o  .o.+. |
++----[SHA256]-----+
+</code></pre>
+<ol>
+<li>Copy the contents of the public key from the file <code>/Users/salavat/.ssh/Ubuntu.pub</code> and send it to the server administrator to which you want to connect via the SSH protocol. The server administrator must add your public key to the <code>authorized_keys</code> file in your home folder on the server.</li>
+<li>You're done! You can use your SSH key to securely connect to a remote server via the SSH protocol.</li>
+</ol>
+<h2 id="add-ssh-key-to-a-remote-server">Add SSH key to a remote server</h2>
+<p>How to add an SSH key to a remote server and connect via SSH</p>
+<ol>
+<li>Open your terminal and navigate to your local <code>.ssh</code> directory:</li>
+</ol>
+<pre><code class="language-sh">cd ~/.ssh
+</code></pre>
+<ol>
+<li>Check if you have an existing public and private key pair. The output should show two files, one ending in <code>.pub</code>:</li>
+</ol>
+<pre><code class="language-sh">ls -ll
+</code></pre>
+<pre><code>salavat@Salavat .ssh % ls -ll
+total 32
+-rw-------  1 salavat  staff   464 Apr 12 12:10 Ubuntu_Key
+-rw-r--r--  1 salavat  staff   103 Apr 12 12:10 Ubuntu_Key.pub
+</code></pre>
+<ol>
+<li>
+<p>If you don't have an SSH key pair, <a href="#generating-a-ssh-key">generating a SSH key</a></p>
+</li>
+<li>
+<p>Once you have an SSH key pair, copy the public key to the remote server using <code>ssh-copy-id</code>. Replace <code>Ubuntu_Key.pub</code> with the name of your public key file and <code>svc-admin@172.30.2.2</code> with your username and remote server's IP address:</p>
+</li>
+</ol>
+<pre><code class="language-sh">ssh-copy-id -i Ubuntu_Key.pub svc-admin@172.30.2.2
+</code></pre>
+<ol>
+<li>Enter your remote server password when prompted.</li>
+<li>Try connecting to the remote server using SSH:</li>
+</ol>
+<pre><code class="language-sh">ssh -i Ubuntu_Key svc-admin@172.30.2.2
+</code></pre>
+<ol>
+<li>If successful, you should see a prompt on the remote server.</li>
+</ol>
+<pre><code>Enter passphrase for key 'Ubuntu_Key': ********
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-69-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr 12 09:26:26 AM UTC 2023
+
+  System load:  0.16015625         Processes:              194
+  Usage of /:   21.8% of 30.31GB   Users logged in:        1
+  Memory usage: 20%                IPv4 address for ens34: 172.30.2.2
+  Swap usage:   0%
+</code></pre>
+<ol>
+<li>If you have a passphrase for your SSH key, add it to the SSH agent using the following command:</li>
+</ol>
+<pre><code class="language-sh">eval `ssh-agent`
+ssh-add Ubuntu_Key
+</code></pre>
+<ol>
+<li>Enter your passphrase when prompted.</li>
+<li>Enter your passphrase when prompted.</li>
+</ol>
+<pre><code class="language-sh">ssh svc-admin@172.30.2.2
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../AWS/s3-bucket/" class="btn btn-neutral float-left" title="S3 Bucket"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../SSH_tmux/" class="btn btn-neutral float-right" title="SSH Tmux">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../AWS/s3-bucket/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../SSH_tmux/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
