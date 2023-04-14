@@ -121,14 +121,26 @@
                 <h1 id="docker">Docker</h1>
 <h2 id="download-and-run-image">Download and run image</h2>
 <ol>
-<li>Check version:
-    <code>sh
-    docker --version
-    # Docker version 20.10.23, build 7155243</code></li>
-<li>Download the Docker image for Postgres using the command:
-    <code>sh
-    docker pull postgres</code></li>
+<li>Check version:</li>
 </ol>
+<pre><code class="language-sh">docker --version
+# Docker version 20.10.23, build 7155243
+</code></pre>
+<ol>
+<li>Download the Docker image for Postgres using the command:</li>
+</ol>
+<pre><code class="language-sh">docker pull postgres
+</code></pre>
+<ol>
+<li>Check that the image has been successfully downloaded using the command:</li>
+</ol>
+<pre><code class="language-sh">docker images
+</code></pre>
+<ol>
+<li>Run the Postgres container using the command:</li>
+</ol>
+<pre><code class="language-sh">docker run --name pgsql -e POSTGRES_PASSWORD='P@$$w0rd' -p 5432:5432 -d postgres
+</code></pre>
               
             </div>
           </div><footer>
