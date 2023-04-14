@@ -134,22 +134,22 @@
 <pre><code class="language-sh">docker run --name pgsql -e POSTGRES_PASSWORD='P@$$w0rd' -p 5432:5432 -d postgres
 </code></pre>
 <blockquote>
-<p><strong>where:</strong>
-  - <code>--name</code> sets the name of the container, 
-  - <code>-e</code> defines an environment variable, 
-  - <code>-p</code> configures port forwarding, and 
-  - <code>-d</code> specifies that the container should be run in detached mode</p>
+<p><strong>where</strong>:
+- <code>--name</code> sets the name of the container, 
+- <code>-e</code> defines an environment variable, 
+- <code>-p</code> configures port forwarding, and 
+- <code>-d</code> specifies that the container should be run in detached mode</p>
 </blockquote>
-<p>5) Check that the container is running using the command:</p>
+<p>1) Check that the container is running using the command:</p>
 <pre><code class="language-sh">docker ps
 </code></pre>
-<p>6) Connect to the Postgres container using the command:</p>
+<p>1) Connect to the Postgres container using the command:</p>
 <pre><code class="language-sh">psql -h localhost -p 5432 -U postgres
 </code></pre>
-<p>7) If the container has been stopped, check its status using the command:</p>
+<p>1) If the container has been stopped, check its status using the command:</p>
 <pre><code class="language-sh">docker ps -a
 </code></pre>
-<p>8) If the container has been stopped, start it using the command:</p>
+<p>1) If the container has been stopped, start it using the command:</p>
 <pre><code class="language-sh">docker start pgsql
 </code></pre>
               

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Interview - NS-Lab</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Interview";
+        var mkdocs_page_input_path = "Python/Interview.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> NS-Lab
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Python Libs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Libs/Faker/">Faker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Libs/dotEnv/">DotEnv</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python ORM</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ORM/SQLAlchemy/sqlalchemy-info/">SQLAlchemy</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python Framework</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Framework/fastapi/">FastAPI</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Amazon AWS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AWS/s3-bucket/">S3 Bucket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOPS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevOPS/SSH_key/">SSH Key</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevOPS/SSH_tmux/">Tmux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../DevOPS/Docker/">Docker</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/info/">About</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/GH-Actions/">GitHub Actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/ConfigYAMLexamples/">Examples</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">NS-Lab</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Interview</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h3 id="question-01">Question 01</h3>
+<p>Что такое Python? Какие преимущества языка Python по сравнению с другими языками программирования?</p>
+<h4 id="answer">Answer:</h4>
+<p>Python - это высокоуровневый, интерпретируемый язык программирования с динамической типизацией. Python создан в конце 1980-х годов Гвидо ван Россумом и быстро стал одним из самых популярных языков программирования в мире. Он имеет простой и понятный синтаксис, что делает его легким в изучении и использовании.</p>
+<p>Некоторые из преимуществ языка Python по сравнению с другими языками программирования:</p>
+<p>Простота: Python имеет чистый и понятный синтаксис, что делает его легким в изучении и использовании.
+Кроссплатформенность: Python может запускаться на различных платформах, включая Windows, Linux и macOS.
+Большое количество библиотек и модулей: Python имеет широкий выбор библиотек и модулей, что позволяет значительно ускорить процесс разработки.
+Интерпретируемый язык: Python не требует компиляции перед запуском, что упрощает процесс разработки и отладки.
+Высокая скорость разработки: благодаря простому и понятному синтаксису Python, процесс разработки может быть значительно ускорен по сравнению с другими языками программирования.
+Поддержка функционального и объектно-ориентированного программирования: Python поддерживает оба стиля программирования, что делает его гибким и универсальным языком программирования.
+Широко используется в различных областях: Python используется в научных исследованиях, анализе данных, веб-разработке, игровой индустрии, машинном обучении и других областях.</p>
+<h3 id="question-02">Question 02</h3>
+<p>Что такое PEP8? Зачем он нужен?</p>
+<h4 id="answer_1">Answer:</h4>
+<p>PEP8 (Python Enhancement Proposal 8) - это документ, который содержит рекомендации по написанию кода на языке Python. Этот документ описывает стандарты и правила форматирования, именования переменных, комментирования кода и другие рекомендации, которые помогают разработчикам создавать более читаемый и понятный код.</p>
+<p>PEP8 является важным инструментом для обеспечения качества кода и его поддержки. Он упрощает чтение, понимание и сопровождение кода для других разработчиков, которые будут работать с ним в будущем. Кроме того, следование рекомендациям PEP8 позволяет снизить количество ошибок и улучшить производительность при написании и сопровождении кода.</p>
+<p>Существует множество инструментов и ресурсов, которые помогают разработчикам следовать рекомендациям PEP8. Например, существуют линтеры (например, pylint или flake8), которые проверяют код на соответствие стандартам PEP8, и IDE, которые подсвечивают нарушения стандартов в процессе написания кода.</p>
+<h3 id="question-03">Question 03</h3>
+<p>Какие типы данных поддерживает Python?</p>
+<h4 id="answer_2">Answer:</h4>
+<p>Python поддерживает множество встроенных типов данных, включая:</p>
+<ul>
+<li>Числовые типы данных: int (целые числа), float (числа с плавающей запятой), complex (комплексные числа).</li>
+<li>Логический тип данных: bool (логические значения True или False).</li>
+<li>Строковые типы данных: str (строки символов).</li>
+<li>Структуры данных: list (списки), tuple (кортежи), set (множества), dict (словари).</li>
+<li>Некоторые специальные типы данных: bytes (байтовые строки), bytearray (изменяемые байтовые строки), None (отсутствие значения).
+Python также поддерживает динамическую типизацию, то есть тип переменной может изменяться в процессе выполнения программы.</li>
+</ul>
+<h3 id="question-04">Question 04</h3>
+<p>Что такое список (list) в Python? Какие методы списка вы знаете?</p>
+<h4 id="answer_3">Answer:</h4>
+<p>Список (list) - это один из встроенных типов данных в Python, представляющий упорядоченную коллекцию элементов, которые могут иметь любой тип данных. Списки в Python могут быть изменяемыми, что означает, что элементы могут быть добавлены, изменены или удалены после создания списка.</p>
+<p>В Python существует множество методов для работы со списками. Некоторые из наиболее распространенных методов списка:</p>
+<p>append() - добавляет элемент в конец списка.
+insert() - вставляет элемент в список на указанную позицию.
+extend() - расширяет список, добавляя элементы из другого списка.
+remove() - удаляет первый встреченный элемент с указанным значением.
+pop() - удаляет элемент по указанному индексу и возвращает его значение.
+index() - возвращает индекс первого встреченного элемента с указанным значением.
+count() - возвращает количество элементов с указанным значением в списке.
+sort() - сортирует элементы списка.
+reverse() - изменяет порядок элементов в списке на обратный.
+Пример использования методов списка:</p>
+<pre><code class="language-python"># создание списка
+my_list = [1, 2, 3, 4, 5]
+
+# добавление элемента в конец списка
+my_list.append(6)
+
+# вставка элемента на позицию 2
+my_list.insert(2, 7)
+
+# расширение списка другим списком
+my_list.extend([8, 9, 10])
+
+# удаление первого встреченного элемента со значением 3
+my_list.remove(3)
+
+# удаление элемента с индексом 4 и сохранение его значения в переменной
+popped_value = my_list.pop(4)
+
+# поиск индекса первого встреченного элемента со значением 5
+index_of_five = my_list.index(5)
+
+# количество элементов со значением 7 в списке
+count_of_sevens = my_list.count(7)
+
+# сортировка списка
+my_list.sort()
+
+# изменение порядка элементов списка на обратный
+my_list.reverse()
+</code></pre>
+<h3 id="question-05">Question 05</h3>
+<p>Что такое кортеж (tuple) в Python? В чем разница между списком и кортежем?</p>
+<h4 id="answer_4">Answer:</h4>
+<p>Кортеж (tuple) - это также один из встроенных типов данных в Python, который представляет собой неизменяемую упорядоченную коллекцию элементов, которые могут иметь любой тип данных, так же как и списки. Основное отличие кортежей от списков заключается в том, что кортежи не могут быть изменены после создания, то есть элементы кортежа не могут быть добавлены, удалены или изменены.</p>
+<p>Различия между списками и кортежами:</p>
+<p>Изменяемость: Кортежи являются неизменяемыми, тогда как списки являются изменяемыми.
+Синтаксис: Кортежи определяются с помощью круглых скобок, а списки - с помощью квадратных скобок.
+Использование: Кортежи обычно используются для представления неизменяемых значений, таких как координаты, имена, даты, а списки обычно используются для управления изменяемыми наборами данных.
+Размер: Кортежи, как правило, занимают меньше памяти, чем списки, потому что они не нуждаются в хранении информации о том, как изменить свои значения, что сокращает накладные расходы на память.
+Пример создания кортежа и его использования:</p>
+<pre><code class="language-python"># создание кортежа
+my_tuple = (1, 2, 3, 4, 5)
+
+# обращение к элементу кортежа по индексу
+print(my_tuple[0]) # выводит 1
+
+# перебор элементов кортежа
+for element in my_tuple:
+    print(element)
+
+# попытка изменить элемент кортежа
+my_tuple[0] = 6 # вызывает ошибку TypeError
+
+</code></pre>
+<h3 id="question-06">Question 06</h3>
+<p>Какие виды циклов поддерживает Python?</p>
+<h4 id="answer_5">Answer:</h4>
+<p>Python поддерживает два вида циклов:</p>
+<p>Цикл for: Цикл for позволяет перебирать элементы последовательности, такие как строки, списки, кортежи и другие объекты, в которых есть элементы.
+Пример:</p>
+<pre><code class="language-python">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+for fruit in fruits:
+  print(fruit)
+</code></pre>
+<p>Цикл while: Цикл while позволяет выполнять набор инструкций до тех пор, пока условие истинно.
+Пример:</p>
+<pre><code class="language-python">i = 1
+while i &lt; 6:
+  print(i)
+  i += 1
+</code></pre>
+<p>Оба цикла имеют синтаксис, который включает в себя ключевые слова for и while, а также блок кода, который необходимо выполнить в каждой итерации цикла. Разница между ними заключается в том, что цикл for используется, когда известен размер последовательности, а цикл while - когда условие продолжения цикла зависит от значения переменной или выражения.</p>
+<h3 id="question-07">Question 07</h3>
+<p>Что такое функция в Python? Как она определяется и вызывается?</p>
+<h4 id="answer_6">Answer:</h4>
+<p>Функция - это блок кода, который может быть вызван в любой части программы, чтобы выполнить набор инструкций. Определение функции в Python начинается с ключевого слова def, за которым следует имя функции, аргументы функции в скобках и двоеточие. Затем идет блок кода, который содержит инструкции, которые нужно выполнить при вызове функции.</p>
+<p>Пример определения функции, которая выводит на экран приветствие:</p>
+<pre><code class="language-python">def say_hello(name):
+    print(&quot;Hello, &quot; + name)
+</code></pre>
+<p>В этом примере say_hello - это имя функции, name - это аргумент функции. Для вызова функции нужно написать ее имя, а в скобках указать значения аргументов, если они есть.</p>
+<p>Пример вызова функции say_hello:</p>
+<pre><code class="language-python">say_hello(&quot;John&quot;)
+</code></pre>
+<p>Эта функция выведет на экран сообщение "Hello, John".</p>
+<p>Также функция может возвращать значение при помощи ключевого слова <code>return</code>.
+Пример функции, которая принимает два аргумента и возвращает их сумму:</p>
+<pre><code class="language-python">def add_numbers(a, b):
+    return a + b
+</code></pre>
+<p>В этом примере функция add_numbers принимает два аргумента a и b и возвращает их сумму. Функция может быть вызвана следующим образом:</p>
+<pre><code class="language-python">result = add_numbers(2, 3)
+print(result)
+</code></pre>
+<p>В этом примере функция add_numbers вызывается с аргументами 2 и 3, и ее возвращаемое значение (5) сохраняется в переменной result, которая затем выводится на экран при помощи функции print().</p>
+<h3 id="question-08">Question 08</h3>
+<p>Что такое модуль в Python? Какие модули вы использовали?</p>
+<h4 id="answer_7">Answer:</h4>
+<p>Модуль в Python - это файл, содержащий набор функций, классов, констант и других объектов, которые могут быть использованы в программе. Модули используются для организации кода, чтобы сделать его более понятным и удобным для повторного использования.</p>
+<p>В Python уже встроены многие модули, например, math, random, datetime, re и другие, которые предоставляют дополнительные функции, которые не входят в стандартную библиотеку Python. Кроме того, существует множество сторонних модулей, которые можно установить через менеджер пакетов pip.</p>
+<p>Для использования модуля в программе нужно его импортировать при помощи ключевого слова import. Например, для использования модуля math, который содержит математические функции, можно написать следующий код:</p>
+<pre><code class="language-python">import math
+
+print(math.sqrt(9)) # выведет на экран 3.0
+</code></pre>
+<p>Этот код импортирует модуль math и вызывает функцию sqrt() из этого модуля для нахождения квадратного корня из числа 9.</p>
+<p>Кроме общепринятых модулей, в зависимости от задачи, программисты могут создавать свои собственные модули для организации кода.</p>
+<h3 id="question-09">Question 09</h3>
+<p>Какие аргументы можно передать в функцию в Python?</p>
+<h4 id="answer_8">Answer:</h4>
+<p>В Python функции могут принимать различные типы аргументов:</p>
+<p>Позиционные аргументы: это обычные аргументы, передаваемые в функцию в порядке, определенном в ее сигнатуре. Они могут быть любого типа данных и не имеют значений по умолчанию.
+Пример:</p>
+<pre><code class="language-python">def sum(a, b):
+    return a + b
+
+print(sum(2, 3)) # выводит 5
+</code></pre>
+<p>Именованные аргументы: это аргументы, передаваемые в функцию по имени. Они могут иметь значение по умолчанию, и если их не передают явно, функция будет использовать значение по умолчанию.
+Пример:</p>
+<pre><code class="language-python">def greet(name, greeting='Hello'):
+    print(greeting + ', ' + name)
+
+greet('Alice') # выводит 'Hello, Alice'
+greet('Bob', 'Hi') # выводит 'Hi, Bob'
+</code></pre>
+<p>Аргументы со звездочкой: это аргументы, которые могут принимать переменное количество значений. Аргументы со звездочкой должны быть последними в списке аргументов.
+Пример:</p>
+<pre><code class="language-python">def sum(*args):
+    total = 0
+    for arg in args:
+        total += arg
+    return total
+
+print(sum(1, 2, 3, 4, 5)) # выводит 15
+</code></pre>
+<p>Аргументы с двумя звездочками: это аргументы, которые могут принимать переменное количество именованных аргументов. Они также должны быть последними в списке аргументов.
+Пример:</p>
+<pre><code class="language-python">def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(key + ': ' + str(value))
+
+print_info(name='Alice', age=25, city='New York') # выводит 'name: Alice', 'age: 25', 'city: New York'
+</code></pre>
+<p>Кроме того, в Python есть возможность передавать аргументы как позиционные, так и именованные одновременно, что позволяет использовать более гибкий подход к вызову функций.</p>
+<h3 id="question-10">Question 10</h3>
+<p>Что такое lambda-функция в Python?</p>
+<h4 id="answer_9">Answer:</h4>
+<p>Lambda-функция в Python - это анонимная (безымянная) функция, которая может быть определена в одной строке кода. Она используется, когда нужно определить функцию для использования внутри другой функции или выражения, но нет необходимости определять ее отдельно.</p>
+<p>Синтаксис lambda-функции выглядит так:</p>
+<pre><code class="language-python">lambda arguments: expression
+</code></pre>
+<p>где arguments - это список аргументов через запятую, а expression - это выражение, которое будет выполнено при вызове функции. Lambda-функции в Python могут иметь несколько аргументов, но только одно выражение.</p>
+<p>Пример использования lambda-функции:</p>
+<pre><code class="language-python"># Создаем lambda-функцию, которая возвращает квадрат числа
+square = lambda x: x**2
+
+# Вызываем lambda-функцию
+result = square(5)
+
+# Результат: 25
+</code></pre>
+<p>Обычно lambda-функции используются в качестве аргументов для функций высшего порядка, таких как <code>map()</code>, <code>filter()</code>, <code>reduce()</code>. Они могут также использоваться вместо именованных функций, если функция не используется в другом месте в коде.</p>
+<h3 id="question-11">Question 11</h3>
+<p>Какие принципы ООП поддерживает Python?</p>
+<h4 id="answer_10">Answer:</h4>
+<p>Python поддерживает все основные принципы ООП (объектно-ориентированного программирования), такие как наследование, полиморфизм, инкапсуляцию, абстракцию.</p>
+<ol>
+<li>Наследование - это механизм, который позволяет определенному классу наследовать свойства и методы другого класса. Класс, который наследует свойства и методы, называется подклассом, а класс, который передает свойства и методы, называется базовым классом или суперклассом. В Python наследование реализуется с помощью ключевого слова <code>class</code>, а затем указывается базовый класс в скобках после имени подкласса.</li>
+<li>Полиморфизм - это возможность объектов разных классов иметь одинаковое имя метода или атрибута, но выполнять разные действия. Полиморфизм в Python достигается путем переопределения методов базового класса в его подклассах.</li>
+<li>Инкапсуляция - это принцип, который позволяет объединить данные и методы внутри класса и скрыть их от других классов и функций, чтобы предотвратить несанкционированный доступ. В Python инкапсуляция достигается путем добавления двойного подчеркивания в начале имени атрибута или метода.</li>
+<li>Абстракция - это процесс выделения основной сути объекта и игнорирования деталей реализации. В Python абстракция достигается путем создания абстрактных классов, которые определяют интерфейс, но не реализуют его. Абстрактные классы могут быть наследованы и реализованы в подклассах.</li>
+</ol>
+<h3 id="question-12">Question 12</h3>
+<p>В чем разница между функцией и методом в Python? И чем их сходство?</p>
+<h4 id="answer_11">Answer:</h4>
+<p>В Python метод - это функция, которая привязана к объекту. Функция же - это независимый блок кода, который можно вызвать в любом месте программы.</p>
+<p>Методы и функции имеют сходство в том, что они оба выполняют определенную задачу. Однако, методы привязаны к объектам и работают с их состоянием, тогда как функции не имеют такой связи и не зависят от состояния объекта. Кроме того, методы могут иметь доступ к скрытым свойствам объекта (таким как self.__private_variable), тогда как функции не имеют такого доступа.
+Пример разницы между функцией и методом в Python:</p>
+<pre><code class="language-python">class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+    def my_method(self):
+        print(f'The value is {self.value}')
+
+def my_function(value):
+    print(f'The value is {value}')
+
+# создание объекта класса
+my_object = MyClass(10)
+
+# вызов метода у объекта
+my_object.my_method()   # выведет 'The value is 10'
+
+# вызов функции
+my_function(10)         # выведет 'The value is 10'
+</code></pre>
+<p>Здесь <code>my_method()</code> является методом, определенным в классе <code>MyClass</code>, и привязанным к объекту <code>my_object</code>. Функция <code>my_function()</code> не привязана ни к какому объекту и может быть вызвана из любого места программы.</p>
+<p>Что такое класс в Python? Как он определяется и использован?
+Что такое наследование в Python? Как оно работает?
+Какие виды исключений вы знаете в Python?
+Как обрабатывать исключения в Python?
+Что такое модуль unittest в Python?
+Какие преимущества имеет использование модуля unittest в Python?
+Что такое декораторы в Python?
+Какие встроенные функции в Python вы знаете?
+Что такое генераторы в Python?
+Как работают генераторы в Python?
+Какие виды импорта модулей в Python вы знаете?
+Что такое virtualenv в Python?
+Как использовать virtualenv в Python?
+Что такое GIL (Global Interpreter Lock) в Python?
+Как работает GIL в Python?
+Какие библиотеки для научных вычислений вы знаете в Python?
+Как использовать библиотеку NumPy в Python?
+Как использовать библиотеку Pandas в Python?</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
