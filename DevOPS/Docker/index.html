@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>GitHub Actions - NS-Lab</title>
+    <title>Docker - NS-Lab</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "GitHub Actions";
-        var mkdocs_page_input_path = "mkdocs/GH-Actions.md";
+        var mkdocs_page_name = "Docker";
+        var mkdocs_page_input_path = "DevOPS/Docker.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -65,25 +65,27 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">DevOPS</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../DevOPS/SSH_key/">SSH Key</a>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../SSH_key/">SSH Key</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../DevOPS/SSH_tmux/">Tmux</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../SSH_tmux/">Tmux</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../DevOPS/Docker/">Docker</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Docker</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#download-and-run-image">Download and run image</a>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Tools</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">MkDocs Info</a>
-    <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../info/">About</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/info/">About</a>
                 </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">GitHub Actions</a>
-    <ul class="current">
-    </ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/GH-Actions/">GitHub Actions</a>
                 </li>
-                <li class="toctree-l2"><a class="reference internal" href="../ConfigYAMLexamples/">Examples</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../mkdocs/ConfigYAMLexamples/">Examples</a>
                 </li>
     </ul>
                   </li>
@@ -102,59 +104,37 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Tools &raquo;</li>
-          <li>MkDocs Info &raquo;</li>
-      <li>GitHub Actions</li>
+          <li>DevOPS &raquo;</li>
+      <li>Docker</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
     <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
-        <a href="../info/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
-        <a href="../ConfigYAMLexamples/" class="btn btn-neutral float-right" title="Examples">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+        <a href="../SSH_tmux/" class="btn btn-neutral float-left" title="Tmux"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../mkdocs/info/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
     </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="github-actions-using">GitHub Actions using:</h2>
+                <h1 id="docker">Docker</h1>
+<h2 id="download-and-run-image">Download and run image</h2>
 <ol>
-<li>Create file path:</li>
-<li>.github/workflow/ci.yml</li>
-<li>Write in ci.yml file:</li>
+<li>Check version:
+    <code>sh
+    docker --version
+    # Docker version 20.10.23, build 7155243</code></li>
+<li>Download the Docker image for Postgres using the command:
+    <code>sh
+    docker pull postgres</code></li>
 </ol>
-<pre><code class="language-yaml">name: ci
-
-on:
-  push:
-    branches:
-      - master
-
-permissions:
-  contents: write
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-#      - uses: actions/cache@v2
-#        with:
-#          key: ${{ github.ref }}
-#          path: .cache
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
-</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../info/" class="btn btn-neutral float-left" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../ConfigYAMLexamples/" class="btn btn-neutral float-right" title="Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../SSH_tmux/" class="btn btn-neutral float-left" title="Tmux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../mkdocs/info/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -177,10 +157,10 @@ jobs:
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../info/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../SSH_tmux/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../ConfigYAMLexamples/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../mkdocs/info/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
