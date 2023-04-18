@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "SSH Key";
-        var mkdocs_page_input_path = "DevOPS/SSH_key.md";
+        var mkdocs_page_input_path = "DevOPS/ssh_key.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -74,7 +74,7 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../SSH_tmux/">Tmux</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../tmux/">Tmux</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Docker/">Docker</a>
                   </li>
@@ -113,7 +113,7 @@
   </ul>
     <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
         <a href="../../AWS/s3-bucket/" class="btn btn-neutral float-left" title="S3 Bucket"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
-        <a href="../SSH_tmux/" class="btn btn-neutral float-right" title="Tmux">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+        <a href="../tmux/" class="btn btn-neutral float-right" title="Tmux">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
     </div>
   <hr/>
 </div>
@@ -121,35 +121,31 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="ssh-key">SSH Key</h1>
+<p align="center">
+  <img src="https://thumbs.dreamstime.com/b/gold-key-13988904.jpg" alt="Key">
+</p>
+
 <ul>
 <li><a href="#ssh-key">SSH Key</a></li>
 <li><a href="#generating-a-ssh-key">Generating a SSH key</a></li>
 <li><a href="#add-ssh-key-to-a-remote-server">Add SSH key to a remote server</a></li>
 </ul>
+<hr />
 <h2 id="generating-a-ssh-key">Generating a SSH key</h2>
-<p>This instruction will help you generate an ed25519 SSH key using the ssh-keygen command and save it on your computer. An SSH key is used for authentication when connecting to a remote server via the SSH protocol.</p>
-<ol>
-<li>Open a terminal on your computer.
-Enter the command:</li>
-</ol>
+<p>This instruction will help you generate an <strong>ed25519</strong> SSH key using the <code>ssh-keygen</code> command and save it on your computer. An SSH key is used for authentication when connecting to a remote server via the SSH protocol.</p>
+<p>1) Open a terminal on your computer. Enter the command:</p>
 <pre><code class="language-sh">$ cd ~/.ssh
 $ ssh-keygen -t ed25519 -C &quot;SSH key for my Ubuntu&quot;
 </code></pre>
-<ol>
-<li>The ssh-keygen program will prompt you to specify the filename to save the key. By default, it suggests saving the key in the <code>id_ed25519</code> file in the <code>.ssh</code> directory in your home folder. We recommend using a more informative filename to easily identify which key corresponds to which server. Enter <code>Ubuntu_Key</code> as the filename and press Enter.</li>
-</ol>
+<p>2) The ssh-keygen program will prompt you to specify the filename to save the key. By default, it suggests saving the key in the <code>id_ed25519</code> file in the <code>.ssh</code> directory in your home folder. We recommend using a more informative filename to easily identify which key corresponds to which server. Enter <code>Ubuntu_Key</code> as the filename and press Enter:</p>
 <pre><code class="language-output">Generating public/private ed25519 key pair.
 Enter file in which to save the key (/Users/salavat/.ssh/id_ed25519): Ubuntu_Key
 </code></pre>
-<ol>
-<li>The ssh-keygen program will prompt you to enter a passphrase to protect the key. This passphrase will be requested each time the key is used to connect to a remote server. Enter the passphrase and press Enter.</li>
-</ol>
+<p>3) The ssh-keygen program will prompt you to enter a passphrase to protect the key. This passphrase will be requested each time the key is used to connect to a remote server. Enter the passphrase and press Enter:</p>
 <pre><code class="language-output">Enter passphrase (empty for no passphrase): ********
 Enter same passphrase again: ********
 </code></pre>
-<ol>
-<li>Your SSH key has been successfully created and saved to the file <code>/Users/salavat/.ssh/Ubuntu_Key</code>. The ssh-keygen program will display the key fingerprint and a "randomart" image to verify that the key was created correctly.</li>
-</ol>
+<p>4) Your SSH key has been successfully created and saved to the file <code>/Users/salavat/.ssh/Ubuntu_Key</code>. The ssh-keygen program will display the key fingerprint and a "<strong>randomart</strong>" image to verify that the key was created correctly.</p>
 <pre><code class="language-output">Your identification has been saved in Ubuntu_Key
 Your public key has been saved in Ubuntu_Key.pub
 The key fingerprint is:
@@ -167,46 +163,28 @@ The key's randomart image is:
 |        o  .o.+. |
 +----[SHA256]-----+
 </code></pre>
-<ol>
-<li>Copy the contents of the public key from the file <code>/Users/salavat/.ssh/Ubuntu.pub</code> and send it to the server administrator to which you want to connect via the SSH protocol. The server administrator must add your public key to the <code>authorized_keys</code> file in your home folder on the server.</li>
-<li>You're done! You can use your SSH key to securely connect to a remote server via the SSH protocol.</li>
-</ol>
+<p>5) Copy the contents of the public key from the file <code>/Users/salavat/.ssh/Ubuntu.pub</code> and send it to the server administrator to which you want to connect via the SSH protocol. The server administrator must add your public key to the <code>authorized_keys</code> file in your home folder on the server.
+6)  You're done! You can use your SSH key to securely connect to a remote server via the SSH protocol.</p>
+<hr />
 <h2 id="add-ssh-key-to-a-remote-server">Add SSH key to a remote server</h2>
 <p>How to add an SSH key to a remote server and connect via SSH</p>
-<ol>
-<li>Open your terminal and navigate to your local <code>.ssh</code> directory:</li>
-</ol>
+<p>1) Open your terminal and navigate to your local <code>.ssh</code> directory:</p>
 <pre><code class="language-sh">cd ~/.ssh
 </code></pre>
-<ol>
-<li>Check if you have an existing public and private key pair. The output should show two files, one ending in <code>.pub</code>:</li>
-</ol>
-<pre><code class="language-sh">ls -ll
-</code></pre>
+<p>2) Check if you have an existing public and private key pair. The output should show two files, one ending in <code>.pub</code>:</p>
 <pre><code>salavat@Salavat .ssh % ls -ll
 total 32
 -rw-------  1 salavat  staff   464 Apr 12 12:10 Ubuntu_Key
 -rw-r--r--  1 salavat  staff   103 Apr 12 12:10 Ubuntu_Key.pub
 </code></pre>
-<ol>
-<li>
-<p>If you don't have an SSH key pair, <a href="#generating-a-ssh-key">generating a SSH key</a></p>
-</li>
-<li>
-<p>Once you have an SSH key pair, copy the public key to the remote server using <code>ssh-copy-id</code>. Replace <code>Ubuntu_Key.pub</code> with the name of your public key file and <code>svc-admin@172.30.2.2</code> with your username and remote server's IP address:</p>
-</li>
-</ol>
+<p>3) Once you have an SSH key pair, copy the public key to the remote server using <code>ssh-copy-id</code>. Replace <code>Ubuntu_Key.pub</code> with the name of your public key file and <code>svc-admin@172.30.2.2</code> with your username and remote server's IP address:</p>
 <pre><code class="language-sh">ssh-copy-id -i Ubuntu_Key.pub svc-admin@172.30.2.2
 </code></pre>
-<ol>
-<li>Enter your remote server password when prompted.</li>
-<li>Try connecting to the remote server using SSH:</li>
-</ol>
+<p>4) Enter your remote server password when prompted.</p>
+<p>5) Try connecting to the remote server using SSH:</p>
 <pre><code class="language-sh">ssh -i Ubuntu_Key svc-admin@172.30.2.2
 </code></pre>
-<ol>
-<li>If successful, you should see a prompt on the remote server.</li>
-</ol>
+<p>6) If successful, you should see a prompt on the remote server.</p>
 <pre><code>Enter passphrase for key 'Ubuntu_Key': ********
 Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-69-generic x86_64)
 
@@ -221,16 +199,12 @@ Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-69-generic x86_64)
   Memory usage: 20%                IPv4 address for ens34: 172.30.2.2
   Swap usage:   0%
 </code></pre>
-<ol>
-<li>If you have a passphrase for your SSH key, add it to the SSH agent using the following command:</li>
-</ol>
+<p>7) If you have a passphrase for your SSH key, add it to the SSH agent using the following command:</p>
 <pre><code class="language-sh">eval `ssh-agent`
 ssh-add Ubuntu_Key
 </code></pre>
-<ol>
-<li>Enter your passphrase when prompted.</li>
-<li>Enter your passphrase when prompted.</li>
-</ol>
+<p>8) Enter your passphrase when prompted.</p>
+<p>9)  Enter your passphrase when prompted.</p>
 <pre><code class="language-sh">ssh svc-admin@172.30.2.2
 </code></pre>
               
@@ -238,7 +212,7 @@ ssh-add Ubuntu_Key
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../../AWS/s3-bucket/" class="btn btn-neutral float-left" title="S3 Bucket"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../SSH_tmux/" class="btn btn-neutral float-right" title="Tmux">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../tmux/" class="btn btn-neutral float-right" title="Tmux">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -264,7 +238,7 @@ ssh-add Ubuntu_Key
       <span><a href="../../AWS/s3-bucket/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../SSH_tmux/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../tmux/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

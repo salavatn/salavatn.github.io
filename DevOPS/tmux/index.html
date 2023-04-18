@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Tmux";
-        var mkdocs_page_input_path = "DevOPS/SSH_tmux.md";
+        var mkdocs_page_input_path = "DevOPS/tmux.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -66,13 +66,15 @@
               </ul>
               <p class="caption"><span class="caption-text">DevOPS</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../SSH_key/">SSH Key</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../ssh_key/">SSH Key</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Tmux</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#create-new-session">Create New Session</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#delete-session">Delete Session</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#key-pane-controls">Key Pane Controls</a>
     </li>
     </ul>
                   </li>
@@ -112,7 +114,7 @@
     </li>
   </ul>
     <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
-        <a href="../SSH_key/" class="btn btn-neutral float-left" title="SSH Key"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ssh_key/" class="btn btn-neutral float-left" title="SSH Key"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
         <a href="../Docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
     </div>
   <hr/>
@@ -121,8 +123,10 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="terminal-multiplexer-tmux">Terminal Multiplexer (Tmux)</h1>
-<p>"Tmux (Terminal Multiplexer) is a free and open-source program for managing multiple virtual terminals inside one physical terminal. With tmux, you can split your terminal into multiple windows and panes, switch between them, and run multiple terminal sessions in one window. Additionally, tmux allows you to save terminal sessions and restore them at any time, which can be very useful for working with long-running processes.</p>
+<p><img alt="Tmux" src="https://www.perl.com/images/an-introduction-to-tmux/tmux-panes.png" /></p>
+<p>Tmux (Terminal Multiplexer) is a free and open-source program for managing multiple virtual terminals inside one physical terminal. With tmux, you can split your terminal into multiple windows and panes, switch between them, and run multiple terminal sessions in one window. Additionally, tmux allows you to save terminal sessions and restore them at any time, which can be very useful for working with long-running processes.</p>
 <p>Tmux can be especially useful for developers and system administrators who often work with multiple terminals and processes simultaneously. It can also be useful for users who want to use the same terminal to run multiple tasks, including for remote server management."</p>
+<hr />
 <h2 id="create-new-session">Create New Session</h2>
 <ol>
 <li>Start a new Tmux session with the name "Ping_Google_com":</li>
@@ -162,6 +166,7 @@ PING google.com (173.194.222.113) 56(84) bytes of data.
 <ol>
 <li>This will reattach you to the Tmux session and you can see the output of the ping command. You can detach from the session again using the hotkey <code>Ctrl+B</code> and then pressing <code>D</code>.</li>
 </ol>
+<hr />
 <h2 id="delete-session">Delete Session</h2>
 <ol>
 <li>To close a Tmux session, you first need to detach from it. You can do this by using the hotkey <code>Ctrl-B</code> and then pressing <code>D</code>.</li>
@@ -176,11 +181,23 @@ start-web-server: 1 windows (created Wed Apr 12 10:01:46 2023)
 <ol>
 <li>tmux kill-session -t Ping_Google_com</li>
 </ol>
+<hr />
+<h2 id="key-pane-controls">Key Pane Controls</h2>
+<pre><code>Ctrl + B, &quot;         split pane horizontally
+Ctrl + B, %         split pane vertically
+Ctrl + B, o         next pane
+Ctrl + B, ;         prior pane
+Ctrl + B, ←↑→↓      jump to pane
+Ctrl + B, Ctrl + O  swap panes
+Ctrl + B, Space     arrange panes
+Ctrl + B + ←↑→↓     change pane size
+Ctrl + B, !         pop a pane into a new window
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../SSH_key/" class="btn btn-neutral float-left" title="SSH Key"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ssh_key/" class="btn btn-neutral float-left" title="SSH Key"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../Docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
@@ -204,7 +221,7 @@ start-web-server: 1 windows (created Wed Apr 12 10:01:46 2023)
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../SSH_key/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../ssh_key/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../Docker/" style="color: #fcfcfc">Next &raquo;</a></span>
