@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Web Scrapping - NS-Lab</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Web Scrapping";
+        var mkdocs_page_input_path = "Python/Directions/webscrapping.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/rust.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> NS-Lab
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Python Libs</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Libs/Faker/">Faker</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Libs/dotEnv/">DotEnv</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python ORM</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ORM/SQLAlchemy/sqlalchemy-info/">SQLAlchemy</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python Framework</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Framework/fastapi/">FastAPI</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Python Direction</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Web Scrapping</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Что необходимо знать?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#-_1">Веб-сайты для скраппинга</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#-_2">Начало веб-скраппинга</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Сформируем структуру проекта</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Библиотеки для скраппинга</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Виртуальное окружение и установка библиотек</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Amazon AWS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../AWS/s3-bucket/">S3 Bucket</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOPS</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../DevOPS/ssh_key/">SSH Key</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../DevOPS/tmux/">Tmux</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../DevOPS/Docker/">Docker</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tools</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs Info</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/info/">About</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/GH-Actions/">GitHub Actions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../../mkdocs/ConfigYAMLexamples/">Examples</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">NS-Lab</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Python Direction &raquo;</li>
+      <li>Web Scrapping</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+    <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Breadcrumb Navigation">
+        <a href="../../Framework/fastapi/" class="btn btn-neutral float-left" title="FastAPI"><span class="icon icon-circle-arrow-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../AWS/s3-bucket/" class="btn btn-neutral float-right" title="S3 Bucket">Next <span class="icon icon-circle-arrow-right" aria-hidden="true"></span></a>
+    </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="-">Веб-Скраппинг</h1>
+<h2 id="_1">Что необходимо знать?</h2>
+<ul>
+<li><strong>HTML:</strong> Необходимо знать HTML-структуру веб-страницы, чтобы понимать, как получить нужные данные.</li>
+<li><strong>CSS:</strong> Каскадные таблицы стилей помогают в разметке и оформлении веб-страниц. Знание CSS поможет в работе со структурой HTML и определении селекторов.</li>
+<li><strong>Python</strong>: Веб-скрапинг в основном выполняется с использованием языка программирования Python. Необходимо знать основные конструкции языка, типы данных, функции и библиотеки, такие как Requests, Beautiful Soup, Selenium.</li>
+<li><strong>XPath:</strong> Это язык запросов, который используется для извлечения данных из HTML-страниц. Он позволяет определить путь к элементу на странице.</li>
+<li><strong>Регулярные выражения:</strong> Используются для поиска и извлечения данных из текстовых строк.</li>
+<li><strong>HTTP и HTTPS:</strong> Необходимо знать, как работает протокол передачи гипертекста и как веб-серверы обрабатывают запросы.</li>
+<li><strong>CLI:</strong> Умение работать с командной строкой поможет в установке и настройке необходимых инструментов.</li>
+<li><strong>Database:</strong> Некоторые проекты по веб-скрапингу могут включать работу с базами данных.</li>
+<li><strong>Этика веб-скрапинга:</strong> Необходимо соблюдать правила этики веб-скрапинга, чтобы не нарушать законы и соблюдение авторских прав на полученные данные.</li>
+</ul>
+<hr />
+<h2 id="-_1">Веб-сайты для скраппинга</h2>
+<ul>
+<li><strong><a href="http://books.toscrape.com/">Books To Scrape</a></strong> - это сайт с каталогом книг, содержащий информацию о книгах, такую как автор, цена, описание и т.д.</li>
+<li><strong><a href="http://quotes.toscrape.com/">Quotes to Scrape</a></strong> - это сайт для изучения основных концепций веб-скрапинга, таких как выборка элементов с помощью CSS-селекторов, работа с пагинацией и т.д.</li>
+<li><strong><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Crummy</a></strong> - это сайт документации Beautiful Soup, который можно использовать для практики веб-скрапинга с помощью Beautiful Soup.</li>
+<li><strong><a href="https://www.datacamp.com/">Data Camp</a></strong> - это сайт для онлайн-обучения, который также содержит много интересной информации, которую можно извлечь с помощью веб-скрапинга.</li>
+<li><strong><a href="https://www.imdb.com/">IMDB</a></strong> - это сайт, содержащий информацию о фильмах, актерах, режиссерах и т.д.</li>
+<li><strong><a href="https://www.reddit.com/">Reddit</a></strong> - это сайт социальных новостей, который можно использовать для практики извлечения информации из нескольких страниц.</li>
+</ul>
+<hr />
+<h2 id="-_2">Начало веб-скраппинга</h2>
+<h3 id="_2">Сформируем структуру проекта</h3>
+<pre><code>WEBSCRAPPING/
+│   
+├── BooksToScrape/          # папка с приложением.
+│   │ 
+│   ├── main.py             # файл, содержащий основную логику приложения.
+│   │ 
+│   ├── database.py         # файл, отвечающий за подключение к базе данных.
+│   │ 
+│   ├── requirements.txt    # файл, содержащий список зависимостей для проекта.
+│   │ 
+│   └── .env_db             # файл, описываются параметры для подключения к БД
+│ 
+└── README.md               # файл с описанием проекта и инструкциями по его использованию.
+</code></pre>
+<hr />
+<h3 id="_3">Библиотеки для скраппинга</h3>
+<p>В файл <code>requirements.txt</code> сохраним необходимые библиотеки:</p>
+<pre><code>requests
+beautifulsoup4
+</code></pre>
+<ul>
+<li>
+<p>Библиотека <strong><code>requests</code></strong> в Python предоставляет простой и удобный интерфейс для отправки HTTP-запросов и работы с ответами на них. С помощью этой библиотеки можно получить HTML-страницы, изображения, файлы и другие ресурсы из Интернета. Библиотека requests может использоваться во многих задачах, включая веб-скрапинг.</p>
+</li>
+<li>
+<p>Библиотека <strong><code>Beautiful Soup</code></strong> является инструментом для разбора HTML- и XML-документов. Она позволяет обращаться к отдельным элементам HTML-страницы, находить элементы по их атрибутам, классам и тегам, а также извлекать данные из них. Библиотека Beautiful Soup широко используется для веб-скрапинга в Python благодаря своей простоте и мощности. Она может работать с HTML-кодом, который не соответствует стандартам, и автоматически исправлять ошибки разметки.</p>
+</li>
+</ul>
+<hr />
+<h3 id="_4">Виртуальное окружение и установка библиотек</h3>
+<p>Создайте виртуальное окружение с именем venv и активируйте его:</p>
+<pre><code class="language-sh">python3 -m venv venv
+source venv/bin/activate
+</code></pre>
+<p>Установите зависимости из файла requirements.txt, затем просмотрите установленные библиотеки:</p>
+<pre><code class="language-sh">pip install -r requirements.txt
+pip list
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../Framework/fastapi/" class="btn btn-neutral float-left" title="FastAPI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../AWS/s3-bucket/" class="btn btn-neutral float-right" title="S3 Bucket">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../Framework/fastapi/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../AWS/s3-bucket/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
