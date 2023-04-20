@@ -68,8 +68,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#-_1">Веб-сайты для скраппинга</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#_2">Визуальное знакомство с веб сайтом</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#-_2">Анализ веб-сайта</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#-_2">Начало веб-скраппинга</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#-_3">Начало веб-скраппинга</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#_3">Сформируем структуру проекта</a>
     </li>
@@ -178,7 +182,41 @@ http://books.toscrape.com/catalogue/category/books/contemporary_38/index.html</p
 <li><strong>Методы идентификации элементов</strong>  <br> Необходимо понять, как идентифицировать элементы на странице, которые нужны для извлечения данных. Это могут быть классы CSS, теги HTML, XPath-выражения и т.д.</li>
 <li><strong>Способы парсинга</strong>  <br> Необходимо выбрать способ парсинга данных, наиболее подходящий для данного сайта. Например, можно использовать библиотеки BeautifulSoup или lxml для парсинга HTML-кода страницы.</li>
 </ul>
-<h2 id="-_2">Начало веб-скраппинга</h2>
+<h3 id="-_2">Анализ веб-сайта</h3>
+<p>Необходимо понять какие данные мы можем извлечь из этого сайта. На пример:
+  - Название книги
+  - Цена
+  - Описание
+  - Код товара
+  - Книга в наличии или нет
+  - Ссылка на обложку книги</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Book_Title</th>
+<th>Price</th>
+<th>Description</th>
+<th>UPC</th>
+<th>Availability</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>When We Collided</td>
+<td>£31.77</td>
+<td>We are seventeen and shattered and still dancing. We have messy, throbbing hearts, and we are stronger than anyone could ever know</td>
+<td>3ecb690d1542c568</td>
+<td>In stock (16 available)</td>
+<td><a href="http://books.toscrape.com/media/cache/17/db/17db3de71e8217d4277a9328b04f56cf.jpg">Link</a></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Books" src="../webscrapping1.png" />
+<img alt="Books" src="../webscrapping2.png" /></p>
+<h2 id="-_3">Начало веб-скраппинга</h2>
 <h3 id="_3">Сформируем структуру проекта</h3>
 <pre><code>WEBSCRAPPING/
 │   
