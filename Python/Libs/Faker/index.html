@@ -48,9 +48,15 @@
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">Faker</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#how-to-use">How to use</a>
+    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#simple-example">Simple example</a>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-use">How to use</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#install-the-faker-library-using-pip">Install the Faker library using pip:</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#simple-example">Simple example</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#search-available-fake-keywords">Search available fake keywords:</a>
     </li>
@@ -136,37 +142,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="faker">Faker</h1>
-<h2 id="how-to-use">How to use</h2>
+                <h1 id="faker-library">Faker Library</h1>
+<h2 id="overview">Overview</h2>
+<ul>
+<li><a href="#faker-library">Faker Library</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#how-to-use">How to use</a><ul>
+<li><a href="#install-the-faker-library-using-pip">Install the Faker library using pip:</a></li>
+<li><a href="#simple-example">Simple example</a></li>
+</ul>
+</li>
+<li><a href="#search-available-fake-keywords">Search available fake keywords:</a></li>
+<li><a href="#popular-examples">Popular examples:</a></li>
+</ul>
+<blockquote>
 <p>The Faker library in Python is a tool for generating fake data such as names, addresses, phone numbers, and more. Here are some steps to use Faker library in Python:</p>
-<ol>
-<li>Install the Faker library by running the following command in your terminal or command prompt:</li>
-</ol>
+</blockquote>
+<h2 id="how-to-use">How to use</h2>
+<h3 id="install-the-faker-library-using-pip">Install the Faker library using pip:</h3>
 <pre><code class="language-sh">pip install Faker
 </code></pre>
-<ol>
-<li>Import the Faker library at the beginning of your Python code:</li>
-</ol>
-<pre><code class="language-python">from faker import Faker
-</code></pre>
-<ol>
-<li>Create an instance of the Faker class:</li>
-</ol>
-<pre><code class="language-python">fake = Faker()
-</code></pre>
-<ol>
-<li>Use the Faker instance to generate fake data. For example, to generate a fake name:</li>
-</ol>
-<pre><code>name = fake.name()
-</code></pre>
-<h2 id="simple-example">Simple example</h2>
+<h3 id="simple-example">Simple example</h3>
 <pre><code class="language-python">from faker import Faker
 
 fake = Faker()
 
-name = fake.name()
+name  = fake.name()
 email = fake.email()
-city = fake.city()
+city  = fake.city()
 
 print(f&quot;Hello {name}, your email is {email} and you live in {city}&quot;)
 </code></pre>
@@ -178,7 +181,9 @@ Hello William Ellis, your email is lpollard@example.com and you live in South Co
 Hello Garrett Jones, your email is smithryan@example.com and you live in Morrowton
 </code></pre>
 <h2 id="search-available-fake-keywords">Search available fake keywords:</h2>
+<blockquote>
 <p>To search for available Faker methods related to a specific keyword, define a function that iterates through the available attributes of the Faker instance and prints the ones that contain the keyword:</p>
+</blockquote>
 <pre><code class="language-python">from faker import Faker
 
 fake = Faker()
@@ -190,6 +195,14 @@ def search_fake(keyword):
 
 search = &quot;country&quot;
 search_fake(search)
+</code></pre>
+<p><strong>Result:</strong></p>
+<pre><code>bank_country
+country
+country_calling_code
+country_code
+current_country
+current_country_code
 </code></pre>
 <h2 id="popular-examples">Popular examples:</h2>
 <pre><code class="language-python">from faker import Faker

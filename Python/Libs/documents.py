@@ -1,5 +1,18 @@
+from faker import Faker
+
+fake = Faker()
+
+def search_fake(keyword):
+    for attribute in dir(fake):
+        if keyword in attribute:
+            print(attribute)
+
+search = "country"
+search_fake(search)
+
+
 '''
-# DotEnv Library
+# Faker Library
 
 Overview
 --------
@@ -8,59 +21,87 @@ Overview
 * [Step-by-step guide](#step-by-step-guide)
 * [Project Architecture](#project-architecture)
 
-
-## What is DotEnv?
-> DotEnv is a Python library that allows you to read key-value pairs from a `.env` file and set them as environment variables.
+> The Faker library in Python is a tool for generating fake data such as names, addresses, phone numbers, and more. Here are some steps to use Faker library in Python:
 
 
-## How to install
+## How to use
+
+### Install the Faker library using pip:
 ```sh
-pip install python-dotenv
+pip install Faker
 ```
 
-
-
-## Step-by-step guide
-
-* 1.Create a new file (by default name is `.env`) in your project directory and add the following lines:
-
-```sh
-touch .env
-```
-
-* 2. Open the `.env` file in a text editor and add the following lines:
-
-```log
-MySQL_ADDR="172.30.0.100"
-MySQL_USER="root"
-MySQL_PSWD="Pa$$_123!"
-```
-
-* 3. Install the `python-dotenv` library using the following command:
-```sh
-pip install python-dotenv
-```
-
-* 4. Create a new file called `main.py` in your project directory and add the following code:
+### Simple example
 ```python
-from dotenv import load_dotenv
+from faker import Faker
 
-load_dotenv(dotenv_path='.env')
+fake = Faker()
 
-ipaddress = os.getenv("MySQL_ADDR")
-username  = os.getenv("MySQL_USER")
-password  = os.getenv("MySQL_PSWD")
+name  = fake.name()
+email = fake.email()
+city  = fake.city()
 
-print(f"MySQL IP address: {ipaddress}")
-print(f"MySQL Username:   {username}")
-print(f"MySQL Password:   {password}")
+print(f"Hello {name}, your email is {email} and you live in {city}")
 ```
 
 **Result:**
 ```
-MySQL IP address:  172.30.0.100
-MySQL Username:    root
-MySQL Password:    Pa$$_123!
+Hello John Cohen, your email is michael82@example.com and you live in Lanemouth
+
+Hello William Ellis, your email is lpollard@example.com and you live in South Connie
+
+Hello Garrett Jones, your email is smithryan@example.com and you live in Morrowton
+```
+
+## Search available fake keywords:
+> To search for available Faker methods related to a specific keyword, define a function that iterates through the available attributes of the Faker instance and prints the ones that contain the keyword:
+
+```python
+from faker import Faker
+
+fake = Faker()
+
+def search_fake(keyword):
+    for attribute in dir(fake):
+        if keyword in attribute:
+            print(attribute)
+
+search = "country"
+search_fake(search)
+```
+
+**Result:**
+```
+country
+country_calling_code
+country_code
+country_code_long
+country_name
+country_object
+country_of_birth
+country_of_residence
+```
+## Popular examples:
+```python
+from faker import Faker
+
+fake = Faker()
+
+print(fake.city())          # Williamston
+print(fake.color())         # #39ddd8
+print(fake.company())       # Powell Ltd
+print(fake.credit_card_number()) # 4773904006800585
+print(fake.date())          # 1996-06-10
+print(fake.date_time())     # 1993-02-01 19:19:14
+print(fake.emoji())         # 🧑‍🚀
+print(fake.first_name())    # Christine
+print(fake.free_email())    # sullivanamanda@gmail.com
+print(fake.ipv4())          # 103.19.125.13
+print(fake.ipv4_private())  # 172.26.238.74
+print(fake.ipv4_public())   # 148.21.52.81
+print(fake.last_name())     # Monroe
+print(fake.name())          # Katherine Richardson
+print(fake.password())      # +xV0yTHrA*
 ```
 
 ## Project Architecture
