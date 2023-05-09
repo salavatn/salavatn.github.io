@@ -50,9 +50,15 @@
                 </li>
                 <li class="toctree-l2 current"><a class="reference internal current" href="./">DotEnv</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#how-to-use">How to use</a>
+    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#environment-variables-before-and-after">Environment Variables (Before and After)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-dotenv">What is DotEnv?</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-install">How to install</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#step-by-step-guide">Step-by-step guide</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-architecture">Project Architecture</a>
     </li>
     </ul>
                 </li>
@@ -133,62 +139,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="lib-dotenv">Lib DotEnv</h1>
-<h2 id="how-to-use">How to use</h2>
-<ol>
-<li>Create a new file (by default name is <code>.env</code>)</li>
-</ol>
+                <h1 id="dotenv-library">DotEnv Library</h1>
+<h2 id="overview">Overview</h2>
+<ul>
+<li><a href="#dotenv-library">DotEnv Library</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#how-to-install">How to install</a></li>
+<li><a href="#step-by-step-guide">Step-by-step guide</a></li>
+<li><a href="#project-architecture">Project Architecture</a></li>
+</ul>
+<blockquote>
+<h2 id="what-is-dotenv">What is DotEnv?</h2>
+<p>DotEnv is a Python library that allows you to read key-value pairs from a <code>.env</code> file and set them as environment variables.</p>
+</blockquote>
+<h2 id="how-to-install">How to install</h2>
+<pre><code class="language-sh">pip install python-dotenv
+</code></pre>
+<h2 id="step-by-step-guide">Step-by-step guide</h2>
+<ul>
+<li>1.Create a new file (by default name is <code>.env</code>) in your project directory and add the following lines:</li>
+</ul>
 <pre><code class="language-sh">touch .env
 </code></pre>
+<ul>
+<li>
 <ol>
 <li>Open the <code>.env</code> file in a text editor and add the following lines:</li>
 </ol>
-<pre><code>MySQL_ADDR=&quot;172.30.0.100&quot;
+</li>
+</ul>
+<pre><code class="language-log">MySQL_ADDR=&quot;172.30.0.100&quot;
 MySQL_USER=&quot;root&quot;
 MySQL_PSWD=&quot;Pa$$_123!&quot;
 </code></pre>
+<ul>
+<li>
 <ol>
 <li>Install the <code>python-dotenv</code> library using the following command:</li>
 </ol>
+</li>
+</ul>
 <pre><code class="language-sh">pip install python-dotenv
 </code></pre>
+<ul>
+<li>
 <ol>
 <li>Create a new file called <code>main.py</code> in your project directory and add the following code:</li>
 </ol>
-<pre><code class="language-python">from dotenv import dotenv_values
-
-env_vars = dotenv_values(&quot;.env&quot;)
-
-print(f&quot;MySQL IP address: {env_vars['MySQL_ADDR']}&quot;)
-print(f&quot;MySQL Username:   {env_vars['MySQL_USER']}&quot;)
-print(f&quot;MySQL Password:   {env_vars['MySQL_PSWD']}&quot;)
-</code></pre>
-<p><strong>Result:</strong></p>
-<pre><code>MySQL IP address: 172.30.0.100
-MySQL Username:   root
-MySQL Password:   Pa$$_123!
-</code></pre>
-<h2 id="environment-variables-before-and-after">Environment Variables (Before and After)</h2>
+</li>
+</ul>
 <pre><code class="language-python">from dotenv import load_dotenv
-import os
-
-env_before = set(os.environ.keys())
-print(f&quot;Count of variables:\t{len(env_before)}&quot;)
 
 load_dotenv(dotenv_path='.env')
 
-env_after = set(os.environ.keys())
+ipaddress = os.getenv(&quot;MySQL_ADDR&quot;)
+username  = os.getenv(&quot;MySQL_USER&quot;)
+password  = os.getenv(&quot;MySQL_PSWD&quot;)
 
-env_difference = env_after.difference(env_before)
-
-print(f&quot;Count of variables:\t{len(env_after)}&quot;)
-print(f&quot;New Env Variables:\t{env_difference}&quot;)
-
+print(f&quot;MySQL IP address: {ipaddress}&quot;)
+print(f&quot;MySQL Username:   {username}&quot;)
+print(f&quot;MySQL Password:   {password}&quot;)
 </code></pre>
 <p><strong>Result:</strong></p>
-<pre><code>Count of variables:     33
-Count of variables:     36
-New Env Variables:      ['MySQL_ADDR', 'MySQL_USER', 'MySQL_PSWD']
+<pre><code>MySQL IP address:  172.30.0.100
+MySQL Username:    root
+MySQL Password:    Pa$$_123!
+</code></pre>
+<h2 id="project-architecture">Project Architecture</h2>
+<pre><code>PROJECT
+    ├── .env
+    ├── main.py
+    └── README.md
 </code></pre>
               
             </div>
